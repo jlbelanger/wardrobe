@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2eb34be82fc19423246f0b4e303ee9f5",
+    "content-hash": "f4fdf25c554621ae4e23d78d4b974cc4",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -956,6 +956,60 @@
                 }
             ],
             "time": "2022-03-20T21:55:58+00:00"
+        },
+        {
+            "name": "jlbelanger/tapioca",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jlbelanger/tapioca.git",
+                "reference": "dedab7b5949f92556b16cb8fb615b5cd09226853"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jlbelanger/tapioca/zipball/dedab7b5949f92556b16cb8fb615b5cd09226853",
+                "reference": "dedab7b5949f92556b16cb8fb615b5cd09226853",
+                "shasum": ""
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.23.2",
+                "phpunit/phpunit": "^9.5.11",
+                "squizlabs/php_codesniffer": "^3.6.2"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Jlbelanger\\Tapioca\\TapiocaServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jlbelanger\\Tapioca\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Jlbelanger\\Tapioca\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Jenny Belanger",
+                    "email": "mail@jennybelanger.com",
+                    "homepage": "https://www.jennybelanger.com/"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/jlbelanger/tapioca/tree/main",
+                "issues": "https://github.com/jlbelanger/tapioca/issues"
+            },
+            "time": "2022-03-25T23:44:06+00:00"
         },
         {
             "name": "laravel/framework",
@@ -7957,7 +8011,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "jlbelanger/tapioca": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
