@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Validation\Rule;
 use Jlbelanger\Tapioca\Traits\Resource;
 
 class Category extends Model
 {
-	use HasFactory, Resource;
+	use HasFactory, Resource, SoftDeletes;
 
 	protected $fillable = [
 		'name',
