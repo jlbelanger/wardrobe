@@ -29,11 +29,12 @@ class User extends Authenticatable
 	 * @param  string $method
 	 * @return array
 	 */
-	protected function rules(array $data, string $method) : array // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassAfterLastUsed
+	protected function rules(array $data, string $method) : array // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassBeforeLastUsed
 	{
+		$required = $method === 'POST' ? 'required' : 'filled';
 		$rules = [
-			'attributes.email' => ['filled', 'email', 'max:255'],
-			'attributes.username' => ['filled', 'alpha_num', 'max:255'],
+			'attributes.email' => [$required, 'email', 'max:255'],
+			'attributes.username' => [$required, 'alpha_num', 'max:255'],
 		];
 
 		$unique = Rule::unique($this->getTable(), 'email');

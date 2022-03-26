@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Http\Kernel;
+use App\Models\Clothes;
+use App\Observers\ClothesObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,5 +29,7 @@ class AppServiceProvider extends ServiceProvider
 		if ($this->app->environment() !== 'local') {
 			$kernel->appendMiddlewareToGroup('api', \Illuminate\Routing\Middleware\ThrottleRequests::class);
 		}
+
+		Clothes::observe(ClothesObserver::class);
 	}
 }

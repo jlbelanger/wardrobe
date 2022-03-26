@@ -17,6 +17,10 @@ Route::group(['middleware' => ['api', 'auth:sanctum']], function () {
 	Route::delete('/auth/logout', '\App\Http\Controllers\Api\AuthController@logout');
 
 	Route::apiResources([
+		'categories' => '\App\Http\Controllers\Api\CategoryController',
+		'clothes' => '\App\Http\Controllers\Api\ClothesController',
+		'colours' => '\App\Http\Controllers\Api\ColourController',
+		'seasons' => '\App\Http\Controllers\Api\SeasonController',
 		'users' => '\App\Http\Controllers\Api\UserController',
 	]);
 });
