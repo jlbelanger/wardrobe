@@ -17,7 +17,6 @@ class SeasonFactory extends Factory
 			'name' => 'Fall Fashions',
 			'start_date' => '09-22',
 			'end_date' => '12-20',
-			'order_num' => 3,
 		];
 	}
 }

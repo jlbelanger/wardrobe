@@ -16,9 +16,9 @@ class CreateSeasonsTable extends Migration
 		Schema::create('seasons', function (Blueprint $table) {
 			$table->id();
 			$table->string('name');
-			$table->string('start_date', 4);
-			$table->string('end_date', 4);
-			$table->integer('order_num');
+			$table->string('start_date', 5);
+			$table->string('end_date', 5);
+			$table->integer('order_num')->default(0);
 			$table->timestamps();
 			$table->timestamp('deleted_at')->nullable();
 		});

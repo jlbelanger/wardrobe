@@ -15,8 +15,6 @@ class CategoryFactory extends Factory
 	{
 		return [
 			'name' => 'Skirts',
-			'order_num' => 5,
-			'order_num_footer' => 2,
 		];
 	}
 }
