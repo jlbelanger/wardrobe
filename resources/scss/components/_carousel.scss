@@ -1,0 +1,88 @@
+.carousel__container {
+	background-color: $white;
+	border-color: $gray $black $black $gray;
+	border-style: solid;
+	border-width: 8px;
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+
+	.flash & {
+		background-color: $black;
+	}
+
+	&.hide {
+		display: none;
+	}
+}
+
+.carousel {
+	display: flex;
+	flex: 1 1 auto;
+}
+
+.carousel__list {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	overflow-x: auto;
+	padding: 0;
+	scroll-snap-type: x mandatory;
+}
+
+.carousel__item {
+	align-items: center;
+	display: flex;
+	flex-shrink: 0;
+	justify-content: center;
+	scroll-snap-align: start;
+	width: 100%;
+
+	.flash & {
+		filter:
+			drop-shadow(0 0 1px $white)
+			drop-shadow(0 0 1px $white)
+			drop-shadow(0 0 1px $white)
+			drop-shadow(0 0 1px $white)
+			drop-shadow(0 0 1px $white)
+			drop-shadow(0 0 1px $white)
+			drop-shadow(0 0 1px $white);
+	}
+
+	&.hide {
+		display: none;
+	}
+}
+
+img {
+	font-size: 0;
+	max-height: 200px;
+	max-width: 50%;
+
+	&[data-src] {
+		visibility: hidden;
+
+		&::after {
+			animation: spin 1s infinite linear;
+			border-color: $light-gray $light-gray $light-gray transparent;
+			border-radius: 100px;
+			border-style: solid;
+			border-width: 8px;
+			content: '';
+			display: block;
+			height: 32px;
+			visibility: visible;
+			width: 32px;
+		}
+	}
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(359deg);
+	}
+}

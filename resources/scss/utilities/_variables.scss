@@ -1,0 +1,22 @@
+$primary: #13007d;
+$light-primary: scale-color($primary, $lightness: 40%);
+$dark-primary: scale-color($primary, $lightness: -30%);
+
+$secondary: #6161ff;
+$light-secondary: scale-color($secondary, $lightness: 40%);
+$dark-secondary: scale-color(scale-color($secondary, $lightness: -40%), $saturation: -50%);
+
+$yellow: #f1e3ac;
+$black: #000;
+$white: #fff;
+
+$gray: #9897a1;
+$light-gray: scale-color($gray, $lightness: 70%);
+$dark-gray: scale-color($gray, $lightness: -60%);
+
+$small-up: 480px;
+$medium-up: 800px;
+$large-up: 1040px;
+
+$header-height: 54px;
+$footer-height: 52px;

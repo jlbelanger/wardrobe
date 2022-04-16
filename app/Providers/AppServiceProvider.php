@@ -27,6 +27,16 @@ class AppServiceProvider extends ServiceProvider
 	 */
 	public function boot(Kernel $kernel)
 	{
+		if (env('LOG_DATABASE_QUERIES') === '1') {
+			\DB::listen(function ($query) {
+				\Log::info(
+					$query->sql,
+					$query->bindings,
+					$query->time
+				);
+			});
+		}
+
 		if ($this->app->environment() !== 'local') {
 			$kernel->appendMiddlewareToGroup('api', \Illuminate\Routing\Middleware\ThrottleRequests::class);
 		}

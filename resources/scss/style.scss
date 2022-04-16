@@ -1,1 +1,56 @@
 @import '../../node_modules/normalize.css/normalize';
+@import 'utilities/variables';
+@import 'utilities/fonts';
+@import 'layout/header';
+@import 'layout/content';
+@import 'layout/footer';
+@import 'components/buttons';
+@import 'components/carousel';
+@import 'components/carousel-controls';
+@import 'components/focus';
+@import 'components/mismatch';
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: $black;
+	font-family: chicago, consolas, monospace;
+	user-select: none;
+}
+
+body,
+button,
+select {
+	font-size: 20px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+#more,
+button,
+select {
+	cursor: pointer;
+
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: $secondary;
+		border-color: $light-secondary $dark-secondary $dark-secondary $light-secondary;
+	}
+}
+
+#container {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+#header,
+#footer {
+	background: $primary;
+	border-color: $secondary $secondary $black;
+	border-style: solid;
+	border-width: 4px 0;
+}

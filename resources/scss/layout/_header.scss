@@ -1,0 +1,41 @@
+#header {
+	align-items: center;
+	display: flex;
+	padding: 4px 8px;
+}
+
+#title {
+	color: $white;
+	display: none;
+	font-size: 20px;
+	font-weight: normal;
+	margin: 4px 0 0;
+	white-space: nowrap;
+	width: 33.333%;
+
+	@media screen and (min-width: $medium-up) {
+		display: block;
+	}
+}
+
+#seasons-container {
+	text-align: center;
+	width: 100%;
+
+	@media screen and (min-width: $medium-up) {
+		width: 33.333%;
+	}
+}
+
+select {
+	appearance: none;
+	border-style: solid;
+	border-width: 4px;
+	box-shadow: 0 0 0 4px $black;
+	cursor: pointer;
+	display: inline-block;
+	line-height: 1;
+	margin: 4px;
+	padding: 2px 0 0;
+	width: 165px;
+}

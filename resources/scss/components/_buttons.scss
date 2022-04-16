@@ -1,0 +1,42 @@
+.button {
+	appearance: none;
+	background: $gray;
+	border-color: $light-gray $dark-gray $dark-gray $light-gray;
+	border-radius: 0;
+	border-style: solid;
+	border-width: 4px;
+	box-shadow: 0 0 0 4px $black;
+	cursor: pointer;
+	display: inline-block;
+	line-height: .8;
+	margin: 4px;
+	padding: 0;
+}
+
+.button--large {
+	border-width: 8px;
+	font-size: 28px;
+	height: 85px;
+	padding-top: 4px;
+	width: 124px;
+
+	@media screen and (min-width: $large-up) {
+		font-size: 44px;
+		height: 95px;
+		width: 190px;
+	}
+}
+
+.button--large,
+.carousel-button {
+	box-shadow: 0 0 0 8px $black;
+	margin: 8px;
+}
+
+select,
+#more {
+	background: $primary;
+	border-color: $secondary $dark-primary $dark-primary $secondary;
+	border-radius: 4px;
+	color: $white;
+}

@@ -1,0 +1,57 @@
+#content {
+	background-color: $yellow;
+	background-image: url('/assets/img/cheetah.png');
+	background-size: 50%;
+	display: flex;
+	flex: 1 1 auto;
+}
+
+#content-left {
+	align-items: flex-end;
+	display: flex;
+	justify-content: flex-end;
+	min-width: 16px;
+	width: 25%;
+
+	@media screen and (min-width: $medium-up) {
+		width: 50%;
+	}
+}
+
+#content-right {
+	align-items: flex-end;
+	display: flex;
+	justify-content: flex-start;
+	min-width: 16px;
+	width: 25%;
+
+	@media screen and (min-width: $medium-up) {
+		width: 50%;
+	}
+}
+
+#content-middle {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	height: calc(100vh - #{$header-height + $footer-height});
+	max-width: 400px;
+	width: 100%;
+
+	@media screen and (min-width: $medium-up) {
+		max-width: 500px;
+	}
+
+	@media screen and (min-width: $large-up) {
+		max-width: 600px;
+	}
+}
+
+#browse,
+#dress-me {
+	display: none;
+
+	@media screen and (min-width: $medium-up) {
+		display: block;
+	}
+}

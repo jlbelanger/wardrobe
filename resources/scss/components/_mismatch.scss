@@ -1,0 +1,40 @@
+#mismatch-container {
+	align-items: center;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+
+	&.hide {
+		display: none;
+	}
+}
+
+#mismatch {
+	background-color: $light-secondary;
+	border: 8px solid $black;
+	box-shadow: 8px 8px 0 0 rgba($black, .5);
+	font-size: 50px;
+	line-height: 40px;
+	padding: 10px 0 0;
+	text-align: center;
+	white-space: nowrap;
+
+	@media screen and (min-width: $small-up) {
+		font-size: 80px;
+		line-height: 70px;
+	}
+
+	@media screen and (min-width: $medium-up) {
+		font-size: 110px;
+		line-height: 100px;
+	}
+
+	@media screen and (min-width: $large-up) {
+		font-size: 140px;
+		line-height: 130px;
+	}
+}

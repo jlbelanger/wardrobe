@@ -1,0 +1,41 @@
+.carousel-controls {
+	display: flex;
+	margin-bottom: -8px;
+}
+
+.carousel-button {
+	flex: 2 1 auto;
+	font-size: 0;
+	padding: 0;
+	white-space: nowrap;
+}
+
+.carousel-button::after,
+.carousel-button--back::before,
+.carousel-button--next::before {
+	background-image: url('/assets/img/play.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 26px auto;
+	content: '';
+	display: inline-block;
+	height: 26px;
+	width: 22px;
+
+	@media screen and (min-width: $large-up) {
+		background-size: 32px auto;
+		height: 36px;
+		width: 26px;
+	}
+}
+
+.carousel-button--ok {
+	flex: 1 1 auto;
+}
+
+.carousel-button--back {
+	&::after,
+	&::before {
+		transform: scaleX(-1);
+	}
+}
