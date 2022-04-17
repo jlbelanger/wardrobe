@@ -15,7 +15,7 @@
 			<div class="hanger"></div><div class="hanger"></div><div class="hanger"></div><div class="hanger"></div>
 			<div class="hanger"></div><div class="hanger"></div><div class="hanger"></div><div class="hanger"></div>
 		</div>
-		<main id="container">
+		<main id="error">
 			<h1>Server Error</h1>
 			<p>Something went wrong. Please try again later.</p>
 		</main>

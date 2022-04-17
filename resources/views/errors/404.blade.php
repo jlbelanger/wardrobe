@@ -15,7 +15,7 @@
 			<div class="hanger"></div><div class="hanger"></div><div class="hanger"></div><div class="hanger"></div>
 			<div class="hanger"></div><div class="hanger"></div><div class="hanger"></div><div class="hanger"></div>
 		</div>
-		<main id="container">
+		<main id="error">
 			<h1>Not Found</h1>
 			<p>The requested URL was not found on this server.</p>
 		</main>
