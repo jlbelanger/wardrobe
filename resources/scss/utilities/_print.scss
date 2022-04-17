@@ -1,0 +1,36 @@
+// stylelint-disable declaration-no-important
+
+@media print {
+	#header,
+	#content,
+	#footer,
+	#more,
+	.button,
+	.carousel__container,
+	.category__label,
+	select {
+		background: $white !important;
+		border: 0 !important;
+		border-radius: 0 !important;
+		box-shadow: none !important;
+		color: $black !important;
+		padding: 0;
+	}
+
+	.carousel-controls {
+		margin: 0 !important;
+	}
+
+	.carousel-button {
+		font-size: 20px;
+
+		&::before,
+		&::after {
+			display: none !important;
+		}
+	}
+
+	.carousel__item {
+		-webkit-print-color-adjust: exact !important;
+	}
+}

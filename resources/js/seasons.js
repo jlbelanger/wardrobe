@@ -9,6 +9,11 @@ function onChangeSeason(e) {
 			$c.classList.add('hide');
 		}
 	});
+
+	const $lists = document.querySelectorAll('.carousel__list');
+	Array.from($lists).forEach(($list) => {
+		onScrollList({ target: $list });
+	});
 }
 
 const $seasons = document.getElementById('seasons');

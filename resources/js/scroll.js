@@ -1,4 +1,8 @@
 function onScrollList(e) {
+	if (window.DISABLE_SCROLL) {
+		return;
+	}
+
 	const $carousel = e.target.closest('.carousel');
 	const $items = e.target.querySelectorAll('.carousel__item:not(.hide)');
 	const num = $items.length;
@@ -17,13 +21,5 @@ function onScrollList(e) {
 
 const $lists = document.querySelectorAll('.carousel__list');
 Array.from($lists).forEach(($list) => {
-	$list.addEventListener('scroll', debounce(onScrollList, 50));
+	$list.addEventListener('scroll', onScrollList);
 });
-
-function onResize() {
-	Array.from($lists).forEach(($list) => {
-		onScrollList({ target: $list });
-	});
-}
-
-window.addEventListener('resize', onResize);

@@ -19,24 +19,30 @@
 	flex: 1 1 auto;
 }
 
-.footer__link {
+.category__checkbox {
+	display: none;
+}
+
+.category__label {
+	align-items: center;
 	background: transparent;
 	border: 0;
 	border-radius: 0;
 	color: $white;
-	display: block;
+	display: flex;
 	height: 44px;
+	justify-content: center;
 	padding: 2px 8px 0;
 	width: 100%;
-}
 
-.footer__link--active {
-	color: $light-secondary;
+	:checked + & {
+		color: $light-secondary;
 
-	&:hover,
-	&:active,
-	&:focus {
-		color: $white;
+		&:hover,
+		&:active,
+		&:focus {
+			color: $white;
+		}
 	}
 }
 

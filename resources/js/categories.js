@@ -1,11 +1,8 @@
-function onClickCategory(e) {
-	const $categoryButton = e.target;
-	const isVisible = $categoryButton.classList.contains('footer__link--active');
-
-	$categoryButton.classList.toggle('footer__link--active');
-
-	const categoryId = $categoryButton.getAttribute('data-category-id');
+function onChangeCategory(e) {
+	const $checkbox = e.target;
+	const categoryId = $checkbox.getAttribute('value');
 	const $carousel = document.getElementById(`category-${categoryId}`);
+	const isVisible = !$carousel.classList.contains('hide');
 
 	if (!isVisible) {
 		const $item = $carousel.querySelector('.carousel__item:not(.hide)');
@@ -15,7 +12,7 @@ function onClickCategory(e) {
 	$carousel.classList.toggle('hide');
 }
 
-const $categoryButtons = document.querySelectorAll('[data-category-id]');
-Array.from($categoryButtons).forEach(($categoryButton) => {
-	$categoryButton.addEventListener('click', onClickCategory);
+const $categoryCheckboxes = document.querySelectorAll('.category__checkbox');
+Array.from($categoryCheckboxes).forEach(($categoryCheckbox) => {
+	$categoryCheckbox.addEventListener('change', onChangeCategory);
 });

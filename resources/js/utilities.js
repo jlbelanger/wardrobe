@@ -1,15 +1,14 @@
 function loadImage($item) {
-	const $img = $item.querySelector('img');
-	const src = $img.getAttribute('data-src');
+	const src = $item.getAttribute('data-src');
 	if (src) {
-		$img.setAttribute('src', src);
-		$img.removeAttribute('data-src');
+		$item.style.backgroundImage = `url('${src}')`;
+		$item.removeAttribute('data-src');
 	}
 }
 
-function scrollToItem($carousel, $items, i) { // eslint-disable-line no-unused-vars
+function scrollToItem($carousel, $items, i, behavior = 'smooth') { // eslint-disable-line no-unused-vars
 	const $item = $items[i];
 	loadImage($item);
-	$item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+	$item.scrollIntoView({ block: 'nearest', behavior });
 	$carousel.setAttribute('data-index', i);
 }

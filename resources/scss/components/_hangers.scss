@@ -1,0 +1,60 @@
+#hangers {
+	background-color: $black;
+	display: flex;
+	flex-wrap: wrap;
+	height: 100vh;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	width: 100vw;
+	z-index: 2;
+}
+
+.hanger {
+	animation-duration: 3s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+	animation-name: sway-1;
+	animation-timing-function: cubic-bezier(.455, .03, .515, .955);
+	background-image: url('/assets/img/hanger.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 17vw auto;
+	height: 25vh;
+	position: relative;
+	width: 25vw;
+
+	&:nth-of-type(odd) {
+		animation-name: sway-2;
+		top: -12.5vh;
+	}
+}
+
+@keyframes sway-1 {
+	0% {
+		transform: scale(.8) rotate(10deg) translateZ(0);
+	}
+
+	50% {
+		transform: scale(1) rotate(0) translateZ(0);
+	}
+
+	100% {
+		transform: scale(.8) rotate(10deg) translateZ(0);
+	}
+}
+
+@keyframes sway-2 {
+	0% {
+		transform: scale(1) rotate(0) translateZ(0);
+	}
+
+	50% {
+		transform: scale(.8) rotate(-10deg) translateZ(0);
+	}
+
+	100% {
+		transform: scale(1) rotate(0) translateZ(0);
+	}
+}

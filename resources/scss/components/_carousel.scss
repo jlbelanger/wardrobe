@@ -23,6 +23,7 @@
 
 .carousel__list {
 	display: flex;
+	flex: 1 1 auto;
 	list-style: none;
 	margin: 0;
 	overflow-x: auto;
@@ -31,10 +32,11 @@
 }
 
 .carousel__item {
-	align-items: center;
-	display: flex;
-	flex-shrink: 0;
-	justify-content: center;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: auto 80%;
+	flex: 1 0 100%;
+	font-size: 0;
 	scroll-snap-align: start;
 	width: 100%;
 
@@ -52,15 +54,9 @@
 	&.hide {
 		display: none;
 	}
-}
-
-img {
-	font-size: 0;
-	max-height: 200px;
-	max-width: 50%;
 
 	&[data-src] {
-		visibility: hidden;
+		position: relative;
 
 		&::after {
 			animation: spin 1s infinite linear;
@@ -69,10 +65,11 @@ img {
 			border-style: solid;
 			border-width: 8px;
 			content: '';
-			display: block;
-			height: 32px;
-			visibility: visible;
-			width: 32px;
+			height: $loading-icon-size;
+			left: calc(50% - #{$loading-icon-size / 2});
+			position: absolute;
+			top: calc(50% - #{$loading-icon-size / 2});
+			width: $loading-icon-size;
 		}
 	}
 }

@@ -8,12 +8,16 @@ function randomizeCarousel($carousel) {
 		i = Math.floor(Math.random() * num);
 	} while (i === currentI);
 
-	scrollToItem($carousel, $items, i);
+	scrollToItem($carousel, $items, i, 'auto');
 }
 
 function onClickOk(e) {
 	const $carousel = e.target.closest('.carousel__container').querySelector('.carousel');
+	window.DISABLE_SCROLL = true;
 	randomizeCarousel($carousel);
+	setTimeout(() => {
+		window.DISABLE_SCROLL = false;
+	}, 100);
 }
 
 const $okButtons = document.querySelectorAll('.carousel-button--ok');
@@ -22,10 +26,14 @@ Array.from($okButtons).forEach(($okButton) => {
 });
 
 function onClickBrowse() {
+	window.DISABLE_SCROLL = true;
 	const $carousels = document.querySelectorAll('.carousel__container:not(.hide) .carousel');
 	$carousels.forEach(($carousel) => {
 		randomizeCarousel($carousel);
 	});
+	setTimeout(() => {
+		window.DISABLE_SCROLL = false;
+	}, 100);
 }
 
 const $browse = document.getElementById('browse');
