@@ -1,7 +1,7 @@
 function onChangeCategory(e) {
 	const $checkbox = e.target;
-	const categoryId = $checkbox.getAttribute('value');
-	const $carousel = document.getElementById(`category-${categoryId}`);
+	const categorySlug = $checkbox.getAttribute('value');
+	const $carousel = document.getElementById(`category-${categorySlug}`);
 	const isVisible = !$carousel.classList.contains('hide');
 
 	if (!isVisible) {

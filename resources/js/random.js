@@ -8,21 +8,21 @@ function randomizeCarousel($carousel) {
 		i = Math.floor(Math.random() * num);
 	} while (i === currentI);
 
-	scrollToItem($carousel, $items, i, 'auto');
+	scrollToItem($carousel, $items, i);
 }
 
-function onClickOk(e) {
+function onClickRandomize(e) {
 	const $carousel = e.target.closest('.carousel__container').querySelector('.carousel');
 	window.DISABLE_SCROLL = true;
 	randomizeCarousel($carousel);
 	setTimeout(() => {
 		window.DISABLE_SCROLL = false;
-	}, 100);
+	}, 500);
 }
 
-const $okButtons = document.querySelectorAll('.carousel-button--ok');
-Array.from($okButtons).forEach(($okButton) => {
-	$okButton.addEventListener('click', onClickOk);
+const $randomizeButtons = document.querySelectorAll('.carousel-button--randomize');
+Array.from($randomizeButtons).forEach(($randomizeButton) => {
+	$randomizeButton.addEventListener('click', onClickRandomize);
 });
 
 function onClickBrowse() {
@@ -33,7 +33,7 @@ function onClickBrowse() {
 	});
 	setTimeout(() => {
 		window.DISABLE_SCROLL = false;
-	}, 100);
+	}, 500);
 }
 
 const $browse = document.getElementById('browse');

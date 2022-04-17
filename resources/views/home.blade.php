@@ -41,7 +41,7 @@
 					@foreach ($categories as $category)
 						<div
 							class="carousel__container invisible{{ $category->is_default ? '' : ' hide' }}"
-							id="category-{{ $category->id }}"
+							id="category-{{ $category->slug }}"
 						>
 							<div class="carousel" data-index="0">
 								<ul class="carousel__list">
@@ -63,7 +63,7 @@
 							</div>
 							<div class="carousel-controls">
 								<button class="button carousel-button carousel-button--back" type="button">Back</button>
-								<button class="button carousel-button carousel-button--ok" type="button">OK</button>
+								<button class="button carousel-button carousel-button--randomize" type="button">Randomize</button>
 								<button class="button carousel-button carousel-button--next" type="button">Next</button>
 							</div>
 						</div>
@@ -80,12 +80,12 @@
 							<input
 								class="category__checkbox"
 								{{ $category->is_default ? 'checked data-default="1"' : '' }}
-								id="category-input-{{ $category->id }}"
+								id="category-input-{{ $category->slug }}"
 								name="categories[]"
 								type="checkbox"
-								value="{{ $category->id }}"
+								value="{{ $category->slug }}"
 							/>
-							<label class="category__label" for="category-input-{{ $category->id }}">
+							<label class="category__label" for="category-input-{{ $category->slug }}">
 								{{ $category->name }}
 							</label>
 						</li>

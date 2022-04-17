@@ -20,10 +20,12 @@
 		"lint:css": "node_modules/.bin/stylelint 'resources/scss/**/*.scss'",
 		"lint:js": "node_modules/.bin/eslint resources/js/* --ext .js",
 		"lint:php": "./vendor/bin/phpcs",
+		"test:cypress": "node_modules/.bin/cypress open",
 		"test:php": "./vendor/bin/phpunit",
 		"watch": "gulp"
 	},
 	"dependencies": {
+		"cypress": "^9.5.4",
 		"normalize.css": "^8.0.1"
 	},
 	"devDependencies": {

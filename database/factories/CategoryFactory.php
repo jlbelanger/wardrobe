@@ -15,6 +15,7 @@ class CategoryFactory extends Factory
 	{
 		return [
 			'name' => 'Skirts',
+			'slug' => 'skirts',
 		];
 	}
 }

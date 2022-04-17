@@ -14,6 +14,7 @@ class Category extends Model
 
 	protected $fillable = [
 		'name',
+		'slug',
 		'order_num',
 		'order_num_footer',
 		'is_default',
@@ -35,6 +36,7 @@ class Category extends Model
 		$required = $method === 'POST' ? 'required' : 'filled';
 		$rules = [
 			'attributes.name' => [$required, 'max:255'],
+			'attributes.slug' => [$required, 'max:255', 'regex:/^[a-z0-9-]+$/'],
 			'attributes.order_num' => [$required, 'integer'],
 			'attributes.order_num_footer' => [$required, 'integer'],
 			'attributes.is_default' => ['boolean'],
@@ -45,6 +47,12 @@ class Category extends Model
 			$unique->ignore($this->id);
 		}
 		$rules['attributes.name'][] = $unique;
+
+		$unique = Rule::unique($this->getTable(), 'slug');
+		if ($this->id) {
+			$unique->ignore($this->id);
+		}
+		$rules['attributes.slug'][] = $unique;
 
 		return $rules;
 	}

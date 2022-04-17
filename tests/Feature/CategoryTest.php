@@ -28,6 +28,7 @@ class CategoryTest extends TestCase
 					'type' => 'categories',
 					'attributes' => [
 						'name' => 'Skirts',
+						'slug' => 'skirts',
 						'order_num' => 0,
 						'order_num_footer' => 0,
 						'is_default' => false,
@@ -47,6 +48,7 @@ class CategoryTest extends TestCase
 						'type' => 'categories',
 						'attributes' => [
 							'name' => 'Dresses',
+							'slug' => 'dresses',
 							'order_num' => 0,
 							'order_num_footer' => 0,
 							'is_default' => false,
@@ -59,6 +61,7 @@ class CategoryTest extends TestCase
 						'type' => 'categories',
 						'attributes' => [
 							'name' => 'Dresses',
+							'slug' => 'dresses',
 							'order_num' => 0,
 							'order_num_footer' => 0,
 							'is_default' => false,
@@ -93,6 +96,7 @@ class CategoryTest extends TestCase
 						'type' => 'categories',
 						'attributes' => [
 							'name' => 'Skirts',
+							'slug' => 'skirts',
 							'order_num' => 0,
 							'order_num_footer' => 0,
 							'is_default' => false,
@@ -125,6 +129,7 @@ class CategoryTest extends TestCase
 						'type' => 'categories',
 						'attributes' => [
 							'name' => 'Dresses',
+							'slug' => 'dresses',
 							'order_num' => 0,
 							'order_num_footer' => 0,
 							'is_default' => false,
@@ -137,6 +142,7 @@ class CategoryTest extends TestCase
 						'type' => 'categories',
 						'attributes' => [
 							'name' => 'Dresses',
+							'slug' => 'dresses',
 							'order_num' => 0,
 							'order_num_footer' => 0,
 							'is_default' => false,

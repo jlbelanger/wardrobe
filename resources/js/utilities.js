@@ -6,9 +6,13 @@ function loadImage($item) {
 	}
 }
 
-function scrollToItem($carousel, $items, i, behavior = 'smooth') { // eslint-disable-line no-unused-vars
+function scrollToItem($carousel, $items, i) { // eslint-disable-line no-unused-vars
 	const $item = $items[i];
 	loadImage($item);
-	$item.scrollIntoView({ block: 'nearest', behavior });
+
+	const $list = $carousel.querySelector('.carousel__list');
+	const rect = $item.getBoundingClientRect();
+	$list.scrollTo({ left: i * rect.width, behavior: 'smooth' });
+
 	$carousel.setAttribute('data-index', i);
 }

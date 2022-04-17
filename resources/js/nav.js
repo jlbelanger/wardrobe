@@ -1,4 +1,6 @@
-function onClickBack(e) {
+function onClickBack(e, enableScroll = true) {
+	window.DISABLE_SCROLL = true;
+
 	const $carousel = e.target.closest('.carousel__container').querySelector('.carousel');
 	const currentI = parseInt($carousel.getAttribute('data-index'), 10);
 	const $items = $carousel.querySelectorAll('.carousel__item:not(.hide)');
@@ -12,21 +14,33 @@ function onClickBack(e) {
 	}
 
 	scrollToItem($carousel, $items, i);
+
+	if (enableScroll) {
+		setTimeout(() => {
+			window.DISABLE_SCROLL = false;
+		}, 500);
+	}
 }
 
 function onMousedownBack(e) {
+	clearInterval(window.BACK_INTERVAL);
+	clearInterval(window.NEXT_INTERVAL);
 	if (e.button !== 0 || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) {
 		return;
 	}
-	onClickBack(e);
+	onClickBack(e, false);
 	window.BACK_INTERVAL = setInterval(() => {
-		onClickBack(e);
+		onClickBack(e, false);
 	}, 400);
 }
 
 function onMouseupBack() {
-	clearTimeout(window.BACK_INTERVAL);
+	clearInterval(window.BACK_INTERVAL);
 	window.BACK_INTERVAL = null;
+
+	setTimeout(() => {
+		window.DISABLE_SCROLL = false;
+	}, 500);
 }
 
 function onKeypressBack(e) {
@@ -42,7 +56,9 @@ Array.from($backButtons).forEach(($backButton) => {
 	$backButton.addEventListener('mouseup', onMouseupBack);
 });
 
-function onClickNext(e) {
+function onClickNext(e, enableScroll = true) {
+	window.DISABLE_SCROLL = true;
+
 	const $carousel = e.target.closest('.carousel__container').querySelector('.carousel');
 	const currentI = parseInt($carousel.getAttribute('data-index'), 10);
 	const $items = $carousel.querySelectorAll('.carousel__item:not(.hide)');
@@ -56,21 +72,33 @@ function onClickNext(e) {
 	}
 
 	scrollToItem($carousel, $items, i);
+
+	if (enableScroll) {
+		setTimeout(() => {
+			window.DISABLE_SCROLL = false;
+		}, 500);
+	}
 }
 
 function onMousedownNext(e) {
+	clearInterval(window.BACK_INTERVAL);
+	clearInterval(window.NEXT_INTERVAL);
 	if (e.button !== 0 || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) {
 		return;
 	}
-	onClickNext(e);
+	onClickNext(e, false);
 	window.NEXT_INTERVAL = setInterval(() => {
-		onClickNext(e);
+		onClickNext(e, false);
 	}, 400);
 }
 
 function onMouseupNext() {
-	clearTimeout(window.NEXT_INTERVAL);
+	clearInterval(window.NEXT_INTERVAL);
 	window.NEXT_INTERVAL = null;
+
+	setTimeout(() => {
+		window.DISABLE_SCROLL = false;
+	}, 500);
 }
 
 function onKeypressNext(e) {

@@ -10,11 +10,11 @@ function onResize2() {
 	const $carousels = document.querySelectorAll('.carousel');
 	Array.from($carousels).forEach(($carousel) => {
 		const $items = $carousel.querySelectorAll('.carousel__item:not(.hide)');
-		scrollToItem($carousel, $items, parseInt($carousel.getAttribute('data-index'), 10), 'auto');
+		scrollToItem($carousel, $items, parseInt($carousel.getAttribute('data-index'), 10));
 	});
 	setTimeout(() => {
 		window.DISABLE_SCROLL = false;
-	}, 100);
+	}, 500);
 }
 
 window.addEventListener('resize', onResize);
