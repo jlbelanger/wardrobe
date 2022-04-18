@@ -14,6 +14,7 @@
 		<link rel="stylesheet" href="{{ url('/assets/css/style.min.css?20220417') }}">
 	</head>
 	<body>
+		<noscript>This site requires Javascript to be enabled.</noscript>
 		<div id="hangers">
 			<div class="hanger"></div><div class="hanger"></div><div class="hanger"></div><div class="hanger"></div>
 			<div class="hanger"></div><div class="hanger"></div><div class="hanger"></div><div class="hanger"></div>
@@ -22,11 +23,10 @@
 			<div class="hanger"></div><div class="hanger"></div><div class="hanger"></div><div class="hanger"></div>
 		</div>
 		<main id="container">
-			<noscript>This site requires Javascript to be enabled.</noscript>
 			<header id="header">
 				<h1 id="title">Jenny's Wardrobe</h1>
 				<div id="seasons-container">
-					<select data-default="{{ $currentSeasonId }}" id="seasons">
+					<select aria-label="Season" data-default="{{ $currentSeasonId }}" id="seasons">
 						@foreach ($seasons as $season)
 							<option{{ $currentSeasonId === $season->id ? ' selected' : '' }} value="{{ $season->id }}">{{ $season->name }}</option>
 						@endforeach
@@ -74,26 +74,31 @@
 				</div>
 			</article>
 			<footer id="footer">
-				<ul id="footer-list">
-					@foreach ($categoriesFooter as $category)
-						<li class="footer__item">
-							<input
-								class="category__checkbox"
-								{{ $category->is_default ? 'checked data-default="1"' : '' }}
-								id="category-input-{{ $category->slug }}"
-								name="categories[]"
-								type="checkbox"
-								value="{{ $category->slug }}"
-							/>
-							<label class="category__label" for="category-input-{{ $category->slug }}">
-								{{ $category->name }}
-							</label>
-						</li>
-					@endforeach
-				</ul>
+				<fieldset id="footer-fieldset">
+					<legend id="footer-legend">Categories</legend>
+					<ul id="footer-list">
+						@foreach ($categoriesFooter as $category)
+							<li class="footer__item">
+								<input
+									class="category__checkbox"
+									{{ $category->is_default ? 'checked data-default="1"' : '' }}
+									id="category-input-{{ $category->slug }}"
+									name="categories[]"
+									type="checkbox"
+									value="{{ $category->slug }}"
+								/>
+								<label class="category__label" for="category-input-{{ $category->slug }}">
+									{{ $category->name }}
+								</label>
+							</li>
+						@endforeach
+					</ul>
+				</fieldset>
 				<a class="button" href="https://www.youtube.com/watch?v=XNDubWJU0aU" id="more">More</a>
 			</footer>
-			<div class="hide" id="mismatch-container"><div id="mismatch">Mis-match!</div></div>
+			<div aria-label="Mismatch" aria-hint="" class="hide" id="mismatch-container" role="alert">
+				<div id="mismatch" aria-hidden="true">Mis-match!</div>
+			</div>
 		</main>
 		<script src="{{ url('/assets/js/functions.min.js?20220417') }}"></script>
 	</body>

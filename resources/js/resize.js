@@ -7,7 +7,7 @@ function onResize() {
 }
 
 function onResize2() {
-	const $carousels = document.querySelectorAll('.carousel');
+	const $carousels = document.querySelectorAll('.carousel__container:not(.hide) .carousel');
 	Array.from($carousels).forEach(($carousel) => {
 		const $items = $carousel.querySelectorAll('.carousel__item:not(.hide)');
 		scrollToItem($carousel, $items, parseInt($carousel.getAttribute('data-index'), 10));

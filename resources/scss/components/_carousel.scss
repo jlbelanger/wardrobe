@@ -29,12 +29,16 @@
 	overflow-x: auto;
 	padding: 0;
 	scroll-snap-type: x mandatory;
+
+	&:focus {
+		box-shadow: inset 0 0 0 8px $secondary;
+	}
 }
 
 .carousel__item {
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: auto 80%;
+	background-size: auto 70%;
 	flex: 1 0 100%;
 	font-size: 0;
 	scroll-snap-align: start;

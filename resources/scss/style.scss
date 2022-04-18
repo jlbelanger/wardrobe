@@ -11,6 +11,7 @@
 @import 'components/focus';
 @import 'components/hangers';
 @import 'components/mismatch';
+@import 'components/noscript';
 @import 'utilities/print';
 
 * {
@@ -19,6 +20,7 @@
 
 body {
 	background: $black;
+	color: $white;
 	font-family: chicago, consolas, monospace;
 	user-select: none;
 }

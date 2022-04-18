@@ -3,24 +3,54 @@
 	display: flex;
 }
 
-#footer-list {
-	align-items: center;
-	display: flex;
+#footer-fieldset {
+	border: 0;
 	flex: 1 1 auto;
-	line-height: 1;
-	list-style: none;
 	margin: 0;
-	overflow: auto;
+	min-width: 0;
+	overflow: auto hidden;
 	padding: 0;
 	width: calc(100% - 70px);
 }
 
+#footer-legend {
+	display: none;
+}
+
+#footer-list {
+	align-items: center;
+	display: flex;
+	line-height: 1;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
 .footer__item {
 	flex: 1 1 auto;
+	position: relative;
 }
 
 .category__checkbox {
-	display: none;
+	appearance: none;
+	background: transparent;
+	border: 0;
+	bottom: 0;
+	cursor: pointer;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 2;
+
+	&:focus {
+		& + .category__label {
+			background: $secondary;
+			color: $white;
+		}
+	}
 }
 
 .category__label {
@@ -33,7 +63,9 @@
 	height: 44px;
 	justify-content: center;
 	padding: 2px 8px 0;
+	position: relative;
 	width: 100%;
+	z-index: 1;
 
 	:checked + & {
 		color: $light-secondary;
