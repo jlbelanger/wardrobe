@@ -22,7 +22,7 @@ class CreateClothesTable extends Migration
 			$table->boolean('is_default')->default(false);
 			$table->boolean('is_patterned')->default(false);
 			$table->timestamps();
-			$table->timestamp('deleted_at')->nullable();
+			$table->softDeletes();
 		});
 	}
 

@@ -5,13 +5,15 @@ namespace App\Providers;
 use App\Http\Kernel;
 use App\Models\Clothes;
 use App\Observers\ClothesObserver;
+use DB;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\ServiceProvider;
+use Log;
 
 class AppServiceProvider extends ServiceProvider
 {
 	/**
-	 * Register any application services.
+	 * Registers any application services.
 	 *
 	 * @return void
 	 */
@@ -20,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
 	}
 
 	/**
-	 * Bootstrap any application services.
+	 * Bootstraps any application services.
 	 *
 	 * @param  Kernel $kernel
 	 * @return void
@@ -28,12 +30,8 @@ class AppServiceProvider extends ServiceProvider
 	public function boot(Kernel $kernel)
 	{
 		if (env('LOG_DATABASE_QUERIES') === '1') {
-			\DB::listen(function ($query) {
-				\Log::info(
-					$query->sql,
-					$query->bindings,
-					$query->time
-				);
+			DB::listen(function ($query) {
+				Log::info($query->sql, $query->bindings, $query->time);
 			});
 		}
 

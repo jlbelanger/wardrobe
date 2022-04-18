@@ -1,11 +1,14 @@
 <?php
 
+use App\Models\Category;
+use App\Models\Clothes;
+use App\Models\Season;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-	$categories = \App\Models\Category::all()->keyBy('id');
-	$seasons = \App\Models\Season::all();
-	$clothes = \App\Models\Clothes::orderBy('is_default', 'desc')->get();
+	$categories = Category::all()->keyBy('id');
+	$seasons = Season::all();
+	$clothes = Clothes::orderBy('is_default', 'desc')->get();
 
 	$clothesByCategory = [];
 	$categoriesOutput = [];
@@ -28,7 +31,7 @@ Route::get('/', function () {
 	array_multisort($orderNums, SORT_ASC, $categoriesOutput);
 
 	$seasonsForClothes = [];
-	$clothesSeasons = \DB::table('clothes_season')->get();
+	$clothesSeasons = DB::table('clothes_season')->get();
 	foreach ($clothesSeasons as $c) {
 		if (empty($seasonsForClothes[$c->clothes_id])) {
 			$seasonsForClothes[$c->clothes_id] = [];

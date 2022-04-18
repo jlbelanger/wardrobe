@@ -20,7 +20,7 @@ class CreateSeasonsTable extends Migration
 			$table->string('end_date', 5);
 			$table->integer('order_num')->default(0);
 			$table->timestamps();
-			$table->timestamp('deleted_at')->nullable();
+			$table->softDeletes();
 		});
 	}
 

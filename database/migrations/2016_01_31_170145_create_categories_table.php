@@ -21,7 +21,7 @@ class CreateCategoriesTable extends Migration
 			$table->integer('order_num_footer')->default(0);
 			$table->integer('is_default')->default(false);
 			$table->timestamps();
-			$table->timestamp('deleted_at')->nullable();
+			$table->softDeletes();
 		});
 	}
 
