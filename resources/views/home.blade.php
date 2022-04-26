@@ -10,8 +10,10 @@
 		<meta property="og:image" content="{{ url('/assets/img/share.jpg') }}">
 		<meta property="og:description" content="Re-creation of Cher's Wardrobe from the 1995 movie Clueless.">
 		<title>Jenny's Wardrobe</title>
-		<link rel="icon" href="{{ url('/favicon.svg') }}">
-		<link rel="stylesheet" href="{{ url('/assets/css/style.min.css?20220417') }}">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+		<link rel="icon" href="/favicon.ico">
+		<link rel="stylesheet" href="/assets/css/style.min.css?20220417">
 	</head>
 	<body>
 		<noscript>This site requires Javascript to be enabled.</noscript>
