@@ -12,18 +12,15 @@ class ClothesObserver
 	 */
 	public function updated(Clothes $clothes)
 	{
-		if (!$clothes->isDirty('filename')) {
-			return;
-		}
-
-		$filename = $clothes->getOriginal('filename');
-		if (!$filename) {
-			return;
-		}
-
-		$path = public_path($filename);
-		if (file_exists($path)) {
-			unlink($path);
+		// When uploading or removing file, delete the old file.
+		if ($clothes->isDirty('filename')) {
+			$filename = $clothes->getOriginal('filename');
+			if ($filename) {
+				$path = public_path($filename);
+				if (file_exists($path)) {
+					unlink($path);
+				}
+			}
 		}
 	}
 
@@ -33,13 +30,12 @@ class ClothesObserver
 	 */
 	public function deleted(Clothes $clothes)
 	{
-		if (!$clothes->filename) {
-			return;
-		}
-
-		$path = public_path($clothes->filename);
-		if (file_exists($path)) {
-			unlink($path);
+		// Delete associated files.
+		if ($clothes->filename) {
+			$path = public_path($clothes->filename);
+			if (file_exists($path)) {
+				unlink($path);
+			}
 		}
 	}
 }
