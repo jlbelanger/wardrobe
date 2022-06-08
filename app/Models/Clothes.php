@@ -68,7 +68,6 @@ class Clothes extends Model
 		$required = $method === 'POST' ? 'required' : 'filled';
 		$rules = [
 			'attributes.name' => [$required, 'max:255'],
-			'attributes.filename' => [$required, 'max:255'],
 			'relationships.category.data.id' => [$required, 'integer'],
 			'relationships.colour.data.id' => [$required, 'integer'],
 			'attributes.is_default' => ['boolean'],
@@ -103,11 +102,13 @@ class Clothes extends Model
 	/**
 	 * @param  string $key
 	 * @param  string $filename
+	 * @param  array  $data
 	 * @return string
 	 */
-	public function uploadedFilename(string $key, string $filename) : string // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassBeforeLastUsed
+	public function uploadedFilename(string $key, string $filename, array $data = []) : string // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassBeforeLastUsed
 	{
+		$name = !empty($data) ? $data['attributes']['name'] : $this->name;
 		$pathInfo = pathinfo($filename);
-		return '/uploads/clothes/' . Str::kebab($this->name) . '.' . $pathInfo['extension'];
+		return '/uploads/clothes/' . Str::kebab($name) . '.' . $pathInfo['extension'];
 	}
 }
