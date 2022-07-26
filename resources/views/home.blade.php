@@ -7,7 +7,7 @@
 		<meta name="keywords" content="cluesless, wardrobe, cher, movie">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta property="og:title" content="Jenny's Wardrobe">
-		<meta property="og:image" content="{{ url('/assets/img/share.jpg') }}">
+		<meta property="og:image" content="{{ url('/assets/img/share.png') }}">
 		<meta property="og:description" content="Re-creation of Cher's Wardrobe from the 1995 movie Clueless.">
 		<title>Jenny's Wardrobe</title>
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
