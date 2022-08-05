@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateSeasonsTable extends Migration
 {
 	/**
-	 * Run the migrations.
+	 * Runs the migrations.
 	 *
 	 * @return void
 	 */
@@ -25,7 +25,7 @@ class CreateSeasonsTable extends Migration
 	}
 
 	/**
-	 * Reverse the migrations.
+	 * Reverses the migrations.
 	 *
 	 * @return void
 	 */

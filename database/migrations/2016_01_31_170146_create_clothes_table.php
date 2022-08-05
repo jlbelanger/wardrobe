@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateClothesTable extends Migration
 {
 	/**
-	 * Run the migrations.
+	 * Runs the migrations.
 	 *
 	 * @return void
 	 */
@@ -27,7 +27,7 @@ class CreateClothesTable extends Migration
 	}
 
 	/**
-	 * Reverse the migrations.
+	 * Reverses the migrations.
 	 *
 	 * @return void
 	 */

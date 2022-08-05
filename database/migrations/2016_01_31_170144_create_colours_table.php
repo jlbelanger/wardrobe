@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateColoursTable extends Migration
 {
 	/**
-	 * Run the migrations.
+	 * Runs the migrations.
 	 *
 	 * @return void
 	 */
@@ -22,7 +22,7 @@ class CreateColoursTable extends Migration
 	}
 
 	/**
-	 * Reverse the migrations.
+	 * Reverses the migrations.
 	 *
 	 * @return void
 	 */
