@@ -39,3 +39,12 @@ select {
 	padding: 2px 0 0;
 	width: 165px;
 }
+
+#github {
+	display: none;
+	margin-left: auto;
+
+	@media screen and (min-width: $medium-up) {
+		display: block;
+	}
+}

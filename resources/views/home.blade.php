@@ -13,7 +13,7 @@
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 		<link rel="icon" href="/favicon.ico">
-		<link rel="stylesheet" href="/assets/css/style.min.css?20220417">
+		<link rel="stylesheet" href="/assets/css/style.min.css?20220909">
 	</head>
 	<body>
 		<noscript>This site requires Javascript to be enabled.</noscript>
@@ -34,6 +34,7 @@
 						@endforeach
 					</select>
 				</div>
+				<a class="button" href="https://github.com/jlbelanger/wardrobe" id="github">GitHub</a>
 			</header>
 			<article id="content">
 				<div id="content-left">
