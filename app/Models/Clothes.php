@@ -107,7 +107,7 @@ class Clothes extends Model
 	 */
 	public function uploadedFilename(string $key, string $filename, array $data = []) : string // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassBeforeLastUsed
 	{
-		$name = !empty($data) ? $data['attributes']['name'] : $this->name;
+		$name = !empty($data['attributes']['name']) ? $data['attributes']['name'] : $this->name;
 		$pathInfo = pathinfo($filename);
 		return '/uploads/clothes/' . Str::kebab($name) . '.' . $pathInfo['extension'];
 	}
