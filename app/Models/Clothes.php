@@ -109,6 +109,10 @@ class Clothes extends Model
 	{
 		$name = !empty($data['attributes']['name']) ? $data['attributes']['name'] : $this->name;
 		$pathInfo = pathinfo($filename);
-		return '/uploads/clothes/' . Str::kebab($name) . '.' . $pathInfo['extension'];
+		$extension = strtolower($pathInfo['extension']);
+		if ($extension === 'jpeg') {
+			$extension = 'jpg';
+		}
+		return '/uploads/clothes/' . strtolower(Str::random(8)) . '/' . Str::kebab($name) . '.' . $extension;
 	}
 }
