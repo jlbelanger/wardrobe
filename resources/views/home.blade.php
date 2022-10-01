@@ -5,15 +5,16 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<meta name="description" content="Re-creation of Cher's Wardrobe from the 1995 movie Clueless.">
 		<meta name="keywords" content="cluesless, wardrobe, cher, movie">
-		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta property="og:title" content="Jenny's Wardrobe">
-		<meta property="og:image" content="{{ url('/assets/img/share.png') }}">
 		<meta property="og:description" content="Re-creation of Cher's Wardrobe from the 1995 movie Clueless.">
+		<meta property="og:image" content="{{ url('/assets/img/share.png') }}">
+		<meta name="apple-mobile-web-app-capable" content="yes">
 		<title>Jenny's Wardrobe</title>
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 		<link rel="icon" href="/favicon.ico">
 		<link rel="stylesheet" href="/assets/css/style.min.css?20220909">
+		<link rel="manifest" href="/manifest.json">
 	</head>
 	<body>
 		<noscript>This site requires Javascript to be enabled.</noscript>
