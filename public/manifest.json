@@ -1,6 +1,7 @@
 {
 	"id": "/",
 	"name": "Jenny's Wardrobe",
+	"short_name": "Wardrobe",
 	"description": "Re-creation of Cher's Wardrobe from the 1995 movie Clueless.",
 	"icons": [
 		{
