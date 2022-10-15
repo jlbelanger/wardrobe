@@ -3,8 +3,8 @@ function getAnimationDelay(i) {
 }
 
 function setAnimation(i, elem) {
-	var delay = getAnimationDelay(i);
-	elem.style.animationDelay = delay + 'ms';
+	const delay = getAnimationDelay(i);
+	elem.style.animationDelay = `${delay}ms`;
 	elem.style.animationName = 'appear';
 }
 
@@ -16,7 +16,7 @@ function animate() {
 	let i;
 	let j = 0;
 
-	for (i = 0; i < num; i++) {
+	for (i = 0; i < num; i += 1) {
 		if (!$carousels[i].classList.contains('hide')) {
 			setAnimation(j, $carousels[i]);
 			j += 1;
