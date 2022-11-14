@@ -71,9 +71,9 @@
 			border-width: 8px;
 			content: '';
 			height: $loading-icon-size;
-			left: calc(50% - #{$loading-icon-size / 2});
+			left: calc(50% - #{$loading-icon-size * .5});
 			position: absolute;
-			top: calc(50% - #{$loading-icon-size / 2});
+			top: calc(50% - #{$loading-icon-size * .5});
 			width: $loading-icon-size;
 		}
 	}
