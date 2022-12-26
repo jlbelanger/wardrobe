@@ -4,7 +4,7 @@
 .phpunit.result.cache
 *.log
 /vendor
-cypress.json
+cypress.config.js
 node_modules
 public/uploads
 TODO.md

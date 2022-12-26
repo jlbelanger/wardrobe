@@ -21,7 +21,7 @@ cd wardrobe
 
 # Configure the environment settings
 cp .env.example .env
-cp cypress.example.json cypress.json
+cp cypress.config.example.js cypress.config.js
 
 # Install dependencies
 composer install
