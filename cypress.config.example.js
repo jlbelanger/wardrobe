@@ -3,5 +3,6 @@ const { defineConfig } = require('cypress'); // eslint-disable-line import/no-ex
 module.exports = defineConfig({
 	e2e: {
 		baseUrl: 'https://wardrobe.jennybelanger.local',
+		experimentalRunAllSpecs: true,
 	},
 });
