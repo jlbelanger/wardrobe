@@ -22,7 +22,7 @@
 		"lint:php": "./vendor/bin/phpcs",
 		"test:cypress": "node_modules/.bin/cypress open",
 		"test:php": "./vendor/bin/phpunit",
-		"watch": "gulp"
+		"watch": "npx browserslist@latest --update-db && gulp"
 	},
 	"dependencies": {
 		"cypress": "^12.2.0",
