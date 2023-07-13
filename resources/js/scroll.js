@@ -1,4 +1,6 @@
-function onScrollList(e) {
+import { loadImage } from './utilities';
+
+export const onScrollList = (e) => {
 	if (window.DISABLE_SCROLL) {
 		return;
 	}
@@ -23,9 +25,11 @@ function onScrollList(e) {
 			$carousel.setAttribute('data-index', i);
 		}
 	}
-}
+};
 
-const $lists = document.querySelectorAll('.carousel__list');
-Array.from($lists).forEach(($list) => {
-	$list.addEventListener('scroll', onScrollList);
-});
+export const initScroll = () => {
+	const $lists = document.querySelectorAll('.carousel__list');
+	Array.from($lists).forEach(($list) => {
+		$list.addEventListener('scroll', onScrollList);
+	});
+};

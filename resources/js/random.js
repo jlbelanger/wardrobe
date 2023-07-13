@@ -1,3 +1,5 @@
+import { scrollToItem } from './utilities';
+
 function randomizeCarousel($carousel) {
 	const currentI = parseInt($carousel.getAttribute('data-index'), 10);
 	const $items = $carousel.querySelectorAll('.carousel__item:not(.hide)');
@@ -20,11 +22,6 @@ function onClickRandomize(e) {
 	}, 500);
 }
 
-const $randomizeButtons = document.querySelectorAll('.carousel-button--randomize');
-Array.from($randomizeButtons).forEach(($randomizeButton) => {
-	$randomizeButton.addEventListener('click', onClickRandomize);
-});
-
 function onClickBrowse() {
 	window.DISABLE_SCROLL = true;
 	const $carousels = document.querySelectorAll('.carousel__container:not(.hide) .carousel');
@@ -36,5 +33,12 @@ function onClickBrowse() {
 	}, 500);
 }
 
-const $browse = document.getElementById('browse');
-$browse.addEventListener('click', onClickBrowse);
+export default () => {
+	const $randomizeButtons = document.querySelectorAll('.carousel-button--randomize');
+	Array.from($randomizeButtons).forEach(($randomizeButton) => {
+		$randomizeButton.addEventListener('click', onClickRandomize);
+	});
+
+	const $browse = document.getElementById('browse');
+	$browse.addEventListener('click', onClickBrowse);
+};

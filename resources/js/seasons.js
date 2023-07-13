@@ -1,4 +1,6 @@
-function onChangeSeason(e) {
+import { onScrollList } from './scroll';
+
+export const onChangeSeason = (e) => {
 	const seasonId = e.target.value;
 	const $clothes = document.querySelectorAll('[data-season-ids]');
 
@@ -14,7 +16,9 @@ function onChangeSeason(e) {
 	Array.from($lists).forEach(($list) => {
 		onScrollList({ target: $list });
 	});
-}
+};
 
-const $seasons = document.getElementById('seasons');
-$seasons.addEventListener('change', onChangeSeason);
+export const initSeasons = () => {
+	const $seasons = document.getElementById('seasons');
+	$seasons.addEventListener('change', onChangeSeason);
+};

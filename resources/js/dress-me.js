@@ -37,5 +37,7 @@ function onClickDressMe() {
 	}
 }
 
-const $dressMe = document.getElementById('dress-me');
-$dressMe.addEventListener('click', onClickDressMe);
+export default () => {
+	const $dressMe = document.getElementById('dress-me');
+	$dressMe.addEventListener('click', onClickDressMe);
+};

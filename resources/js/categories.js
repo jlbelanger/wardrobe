@@ -1,4 +1,6 @@
-function onChangeCategory(e) {
+import { loadImage } from './utilities';
+
+export const onChangeCategory = (e) => {
 	const $checkbox = e.target;
 	const categorySlug = $checkbox.getAttribute('value');
 	const $carousel = document.getElementById(`category-${categorySlug}`);
@@ -10,9 +12,11 @@ function onChangeCategory(e) {
 	}
 
 	$carousel.classList.toggle('hide');
-}
+};
 
-const $categoryCheckboxes = document.querySelectorAll('.category__checkbox');
-Array.from($categoryCheckboxes).forEach(($categoryCheckbox) => {
-	$categoryCheckbox.addEventListener('change', onChangeCategory);
-});
+export const initCategories = () => {
+	const $categoryCheckboxes = document.querySelectorAll('.category__checkbox');
+	Array.from($categoryCheckboxes).forEach(($categoryCheckbox) => {
+		$categoryCheckbox.addEventListener('change', onChangeCategory);
+	});
+};

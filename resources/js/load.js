@@ -1,3 +1,6 @@
+import { onChangeCategory } from './categories';
+import { onChangeSeason } from './seasons';
+
 function getAnimationDelay(i) {
 	return (150 * i) + 100;
 }
@@ -39,7 +42,7 @@ function animate() {
 	}, delay);
 }
 
-function onLoad() {
+export default () => {
 	const $seasons = document.getElementById('seasons');
 	if ($seasons.value !== $seasons.getAttribute('data-default')) {
 		onChangeSeason({ target: $seasons });
@@ -54,6 +57,4 @@ function onLoad() {
 	});
 
 	setTimeout(animate, 1000);
-}
-
-window.addEventListener('load', onLoad);
+};

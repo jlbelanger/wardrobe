@@ -1,12 +1,12 @@
-function loadImage($item) {
+export const loadImage = ($item) => {
 	const src = $item.getAttribute('data-src');
 	if (src) {
 		$item.style.backgroundImage = `url('${src}')`;
 		$item.removeAttribute('data-src');
 	}
-}
+};
 
-function scrollToItem($carousel, $items, i) { // eslint-disable-line no-unused-vars
+export const scrollToItem = ($carousel, $items, i) => {
 	const $item = $items[i];
 	loadImage($item);
 
@@ -15,4 +15,4 @@ function scrollToItem($carousel, $items, i) { // eslint-disable-line no-unused-v
 	$list.scrollTo({ left: i * rect.width, behavior: 'smooth' });
 
 	$carousel.setAttribute('data-index', i);
-}
+};

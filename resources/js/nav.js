@@ -1,3 +1,5 @@
+import { scrollToItem } from './utilities';
+
 function onClickBack(e, enableScroll = true) {
 	window.DISABLE_SCROLL = true;
 
@@ -48,13 +50,6 @@ function onKeypressBack(e) {
 		onClickBack(e);
 	}
 }
-
-const $backButtons = document.querySelectorAll('.carousel-button--back');
-Array.from($backButtons).forEach(($backButton) => {
-	$backButton.addEventListener('keypress', onKeypressBack);
-	$backButton.addEventListener('mousedown', onMousedownBack);
-	$backButton.addEventListener('mouseup', onMouseupBack);
-});
 
 function onClickNext(e, enableScroll = true) {
 	window.DISABLE_SCROLL = true;
@@ -107,9 +102,18 @@ function onKeypressNext(e) {
 	}
 }
 
-const $nextButtons = document.querySelectorAll('.carousel-button--next');
-Array.from($nextButtons).forEach(($nextButton) => {
-	$nextButton.addEventListener('keypress', onKeypressNext);
-	$nextButton.addEventListener('mousedown', onMousedownNext);
-	$nextButton.addEventListener('mouseup', onMouseupNext);
-});
+export default () => {
+	const $backButtons = document.querySelectorAll('.carousel-button--back');
+	Array.from($backButtons).forEach(($backButton) => {
+		$backButton.addEventListener('keypress', onKeypressBack);
+		$backButton.addEventListener('mousedown', onMousedownBack);
+		$backButton.addEventListener('mouseup', onMouseupBack);
+	});
+
+	const $nextButtons = document.querySelectorAll('.carousel-button--next');
+	Array.from($nextButtons).forEach(($nextButton) => {
+		$nextButton.addEventListener('keypress', onKeypressNext);
+		$nextButton.addEventListener('mousedown', onMousedownNext);
+		$nextButton.addEventListener('mouseup', onMouseupNext);
+	});
+};
