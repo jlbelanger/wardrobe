@@ -20,7 +20,7 @@
 		"lint:php": "./vendor/bin/phpcs",
 		"test:cypress": "node_modules/.bin/cypress open",
 		"test:php": "./vendor/bin/phpunit",
-		"watch": "npx browserslist@latest --update-db && node_modules/.bin/webpack --watch --mode=development"
+		"watch": "npx browserslist@latest --update-db && node_modules/.bin/webpack --watch --mode=production"
 	},
 	"dependencies": {
 		"cypress": "^12.2.0",
