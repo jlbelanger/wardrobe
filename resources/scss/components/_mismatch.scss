@@ -24,17 +24,17 @@
 	text-align: center;
 	white-space: nowrap;
 
-	@media screen and (min-width: $small-up) {
+	@media (min-width: $small-up) {
 		font-size: 80px;
 		line-height: 70px;
 	}
 
-	@media screen and (min-width: $medium-up) {
+	@media (min-width: $medium-up) {
 		font-size: 110px;
 		line-height: 100px;
 	}
 
-	@media screen and (min-width: $large-up) {
+	@media (min-width: $large-up) {
 		font-size: 140px;
 		line-height: 130px;
 	}

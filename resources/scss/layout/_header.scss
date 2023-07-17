@@ -13,7 +13,7 @@
 	white-space: nowrap;
 	width: 33.333%;
 
-	@media screen and (min-width: $medium-up) {
+	@media (min-width: $medium-up) {
 		display: block;
 	}
 }
@@ -22,7 +22,7 @@
 	text-align: center;
 	width: 100%;
 
-	@media screen and (min-width: $medium-up) {
+	@media (min-width: $medium-up) {
 		width: 33.333%;
 	}
 }
@@ -44,7 +44,7 @@ select {
 	display: none;
 	margin-left: auto;
 
-	@media screen and (min-width: $medium-up) {
+	@media (min-width: $medium-up) {
 		display: block;
 	}
 }

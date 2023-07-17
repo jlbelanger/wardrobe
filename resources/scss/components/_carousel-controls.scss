@@ -23,7 +23,7 @@
 	height: 26px;
 	width: 22px;
 
-	@media screen and (min-width: $large-up) {
+	@media (min-width: $large-up) {
 		background-size: 32px auto;
 		height: 36px;
 		width: 26px;

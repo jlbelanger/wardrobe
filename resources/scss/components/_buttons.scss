@@ -21,7 +21,7 @@
 	padding-top: 4px;
 	width: 124px;
 
-	@media screen and (min-width: $large-up) {
+	@media (min-width: $large-up) {
 		font-size: 44px;
 		height: 95px;
 		width: 190px;
