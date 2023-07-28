@@ -6,6 +6,5 @@
 /vendor
 cypress.config.js
 node_modules
-public/assets/js/style.min.js
 public/uploads
 TODO.md

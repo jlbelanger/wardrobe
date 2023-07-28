@@ -20,10 +20,9 @@
 		"lint:php": "./vendor/bin/phpcs",
 		"test:cypress": "node_modules/.bin/cypress open",
 		"test:php": "./vendor/bin/phpunit",
-		"watch": "npx browserslist@latest --update-db && node_modules/.bin/webpack --watch --mode=production"
+		"start": "npx browserslist@latest --update-db && node_modules/.bin/webpack --watch"
 	},
 	"dependencies": {
-		"cypress": "^12.2.0",
 		"normalize.css": "^8.0.1"
 	},
 	"devDependencies": {
@@ -34,6 +33,7 @@
 		"browser-sync-webpack-plugin": "^2.3.0",
 		"css-loader": "^6.8.1",
 		"cssnano": "^5.1.14",
+		"cypress": "^12.2.0",
 		"dotenv": "^16.3.1",
 		"eslint": "^8.30.0",
 		"eslint-config-airbnb-base": "^15.0.0",
