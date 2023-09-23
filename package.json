@@ -20,7 +20,7 @@
 		"lint:php": "./vendor/bin/phpcs",
 		"test:cypress": "node_modules/.bin/cypress open",
 		"test:php": "./vendor/bin/phpunit",
-		"start": "npx browserslist@latest --update-db && node_modules/.bin/webpack --watch"
+		"start": "npx update-browserslist-db@latest && node_modules/.bin/webpack --watch"
 	},
 	"dependencies": {
 		"normalize.css": "^8.0.1"
