@@ -1,6 +1,6 @@
 # Jenny's Wardrobe
 
-View the app at https://wardrobe.jennybelanger.com/
+Jenny's Wardrobe is a re-creation of Cher's Wardrobe from the 1995 movie Clueless. [View the site](https://wardrobe.jennybelanger.com/).
 
 ## Development
 
@@ -47,6 +47,8 @@ Copy `/public/uploads` from the live site.
 ``` bash
 yarn start
 ```
+
+Your browser should automatically open https://localhost:3000/
 
 ### Lint
 
