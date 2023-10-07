@@ -40,7 +40,7 @@
 			<div class="hanger"></div><div class="hanger"></div><div class="hanger"></div><div class="hanger"></div>
 			<div class="hanger"></div><div class="hanger"></div><div class="hanger"></div><div class="hanger"></div>
 		</div>
-		<main id="container">
+		<main id="main">
 			<header id="header">
 				<h1 id="title">Jenny's Wardrobe</h1>
 				<div id="seasons-container">

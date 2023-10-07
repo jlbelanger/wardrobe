@@ -1,0 +1,15 @@
+.invisible {
+	animation-duration: 0s;
+	animation-fill-mode: forwards;
+	visibility: hidden;
+}
+
+@keyframes appear {
+	from {
+		visibility: hidden;
+	}
+
+	to {
+		visibility: visible;
+	}
+}

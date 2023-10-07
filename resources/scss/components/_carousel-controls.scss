@@ -23,7 +23,7 @@
 	height: 26px;
 	width: 22px;
 
-	@media (min-width: $large-up) {
+	@media ($tablet-landscape-up) {
 		background-size: 32px auto;
 		height: 36px;
 		width: 26px;

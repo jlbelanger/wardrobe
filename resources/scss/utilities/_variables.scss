@@ -1,3 +1,5 @@
+// Colors
+
 $primary: #13007d;
 $light-primary: scale-color($primary, $lightness: 40%);
 $dark-primary: scale-color($primary, $lightness: -30%);
@@ -14,11 +16,19 @@ $gray: #9897a1;
 $light-gray: scale-color($gray, $lightness: 70%);
 $dark-gray: scale-color($gray, $lightness: -60%);
 
-$small-up: 480px;
-$medium-up: 800px;
-$large-up: 1024px;
+// Sizes
 
 $header-height: 54px;
 $footer-height: 52px;
 
 $loading-icon-size: 32px;
+
+// Breakpoints
+
+$breakpoint-small: 480px;
+$breakpoint-medium: 800px;
+$screen-width-tablet-landscape: 1024px;
+
+$small-up: '(min-width: #{$breakpoint-small})';
+$medium-up: '(min-width: #{$breakpoint-medium})';
+$tablet-landscape-up: '(min-width: #{$screen-width-tablet-landscape})';

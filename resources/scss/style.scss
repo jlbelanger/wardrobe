@@ -1,10 +1,13 @@
-@import 'normalize.css/normalize';
 @import 'utilities/variables';
 @import 'utilities/fonts';
+@import 'normalize.css/normalize';
+@import 'layout/typography';
+@import 'layout/main';
 @import 'layout/header';
 @import 'layout/content';
 @import 'layout/footer';
-@import 'components/buttons';
+@import 'components/animation';
+@import 'components/button';
 @import 'components/carousel';
 @import 'components/carousel-controls';
 @import 'components/error';
@@ -13,25 +16,6 @@
 @import 'components/mismatch';
 @import 'components/noscript';
 @import 'utilities/print';
-
-* {
-	box-sizing: border-box;
-}
-
-body {
-	background: $black;
-	color: $white;
-	font-family: chicago, consolas, monospace;
-	user-select: none;
-}
-
-body,
-button,
-select {
-	font-size: 20px;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-}
 
 #more,
 #github,
@@ -45,35 +29,5 @@ select {
 	&:focus {
 		background-color: $secondary;
 		border-color: $light-secondary $dark-secondary $dark-secondary $light-secondary;
-	}
-}
-
-#container {
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
-}
-
-#header,
-#footer {
-	background: $primary;
-	border-color: $secondary $secondary $black;
-	border-style: solid;
-	border-width: 4px 0;
-}
-
-.invisible {
-	animation-duration: 0s;
-	animation-fill-mode: forwards;
-	visibility: hidden;
-}
-
-@keyframes appear {
-	from {
-		visibility: hidden;
-	}
-
-	to {
-		visibility: visible;
 	}
 }

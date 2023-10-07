@@ -22,11 +22,11 @@
 	min-width: 16px;
 	width: calc(50vw - 300px);
 
-	@media (min-width: $medium-up) {
+	@media ($medium-up) {
 		width: calc(50vw - 350px);
 	}
 
-	@media (min-width: $large-up) {
+	@media ($tablet-landscape-up) {
 		width: calc(50vw - 400px);
 	}
 }
@@ -38,11 +38,11 @@
 	height: calc(100vh - #{$header-height + $footer-height});
 	width: 300px;
 
-	@media (min-width: $medium-up) {
+	@media ($medium-up) {
 		width: 350px;
 	}
 
-	@media (min-width: $large-up) {
+	@media ($tablet-landscape-up) {
 		width: 400px;
 	}
 }
@@ -51,7 +51,7 @@
 #dress-me {
 	display: none;
 
-	@media (min-width: $medium-up) {
+	@media ($medium-up) {
 		display: block;
 	}
 }
