@@ -1,8 +1,9 @@
 export const loadImage = ($item) => {
-	const src = $item.getAttribute('data-src');
+	const $img = $item.querySelector('.carousel__img');
+	const src = $img.getAttribute('data-src');
 	if (src) {
-		$item.style.backgroundImage = `url('${src}')`;
-		$item.removeAttribute('data-src');
+		$img.setAttribute('src', src);
+		$img.removeAttribute('data-src');
 	}
 };
 

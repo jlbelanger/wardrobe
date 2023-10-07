@@ -69,13 +69,16 @@
 											class="carousel__item{{ strpos($seasonsForClothes[$c->id], (string) $currentSeasonId) === false ? ' hide' : '' }}"
 											data-colour-id="{{ $c->colour_id }}"
 											data-season-ids="{{ $seasonsForClothes[$c->id] }}"
-											@if ($i === 0 && $category->is_default)
-												style="background-image:url('{{ $c->filename }}')"
-											@else
-												data-src="{{ $c->filename }}"
-											@endif
 										>
-											{{ $c->name }}
+											<img
+												alt="{{ $c->name }}"
+												class="carousel__img"
+												@if ($i === 0 && $category->is_default)
+													src="{{ $c->filename }}"
+												@else
+													data-src="{{ $c->filename }}"
+												@endif
+											/>
 										</li>
 									@endforeach
 								</ul>

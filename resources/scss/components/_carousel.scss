@@ -36,9 +36,6 @@
 }
 
 .carousel__item {
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: auto 70%;
 	color: $black;
 	flex: 1 0 100%;
 	font-size: 0;
@@ -59,6 +56,13 @@
 	&.hide {
 		display: none;
 	}
+}
+
+.carousel__img {
+	height: 70%;
+	object-fit: contain;
+	object-position: center;
+	width: 100%;
 
 	&[data-src] {
 		position: relative;
