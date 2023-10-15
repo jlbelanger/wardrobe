@@ -91,10 +91,10 @@ class ClothesTest extends TestCase
 	{
 		$category = \App\Models\Category::factory()->create(['name' => 'Dresses']);
 		$colour = \App\Models\Colour::factory()->create(['name' => 'Red']);
-		$args['body'] = $this->replaceToken('%category_id%', $category->id, $args['body']);
-		$args['body'] = $this->replaceToken('%colour_id%', $colour->id, $args['body']);
-		$args['response'] = $this->replaceToken('%category_id%', $category->id, $args['response']);
-		$args['response'] = $this->replaceToken('%colour_id%', $colour->id, $args['response']);
+		$args['body'] = $this->replaceToken('%category_id%', (string) $category->id, $args['body']);
+		$args['body'] = $this->replaceToken('%colour_id%', (string) $colour->id, $args['body']);
+		$args['response'] = $this->replaceToken('%category_id%', (string) $category->id, $args['response']);
+		$args['response'] = $this->replaceToken('%colour_id%', (string) $colour->id, $args['response']);
 
 		$response = $this->actingAs($this->user)->json('POST', $this->path, $args['body']);
 		if (!empty($response['data']['id'])) {
@@ -130,7 +130,7 @@ class ClothesTest extends TestCase
 	 */
 	public function testShow(array $args) : void
 	{
-		$args['response'] = $this->replaceToken('%id%', $this->clothes->id, $args['response']);
+		$args['response'] = $this->replaceToken('%id%', (string) $this->clothes->id, $args['response']);
 		$response = $this->actingAs($this->user)->json('GET', $this->path . '/' . $this->clothes->id);
 		$response->assertExactJson($args['response']);
 		$response->assertStatus($args['code']);
@@ -190,12 +190,12 @@ class ClothesTest extends TestCase
 	{
 		$category = \App\Models\Category::factory()->create(['name' => 'Dresses']);
 		$colour = \App\Models\Colour::factory()->create(['name' => 'Red']);
-		$args['body'] = $this->replaceToken('%id%', $this->clothes->id, $args['body']);
-		$args['body'] = $this->replaceToken('%category_id%', $category->id, $args['body']);
-		$args['body'] = $this->replaceToken('%colour_id%', $colour->id, $args['body']);
-		$args['response'] = $this->replaceToken('%id%', $this->clothes->id, $args['response']);
-		$args['response'] = $this->replaceToken('%category_id%', $category->id, $args['response']);
-		$args['response'] = $this->replaceToken('%colour_id%', $colour->id, $args['response']);
+		$args['body'] = $this->replaceToken('%id%', (string) $this->clothes->id, $args['body']);
+		$args['body'] = $this->replaceToken('%category_id%', (string) $category->id, $args['body']);
+		$args['body'] = $this->replaceToken('%colour_id%', (string) $colour->id, $args['body']);
+		$args['response'] = $this->replaceToken('%id%', (string) $this->clothes->id, $args['response']);
+		$args['response'] = $this->replaceToken('%category_id%', (string) $category->id, $args['response']);
+		$args['response'] = $this->replaceToken('%colour_id%', (string) $colour->id, $args['response']);
 		$response = $this->actingAs($this->user)->json('PUT', $this->path . '/' . $this->clothes->id, $args['body']);
 		$response->assertExactJson($args['response']);
 		$response->assertStatus($args['code']);
@@ -213,7 +213,7 @@ class ClothesTest extends TestCase
 	/**
 	 * @dataProvider destroyProvider
 	 */
-	public function testDestroy($args)
+	public function testDestroy(array $args) : void
 	{
 		$response = $this->actingAs($this->user)->json('DELETE', $this->path . '/' . $this->clothes->id);
 		if (!empty($args['response'])) {
