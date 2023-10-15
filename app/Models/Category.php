@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Validation\Rule;
 use Jlbelanger\Tapioca\Traits\Resource;
 
 class Category extends Model
@@ -27,33 +26,16 @@ class Category extends Model
 	];
 
 	/**
-	 * @param  array  $data
-	 * @param  string $method
 	 * @return array
 	 */
-	protected function rules(array $data, string $method) : array // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassBeforeLastUsed
+	public function rules() : array
 	{
-		$required = $method === 'POST' ? 'required' : 'filled';
-		$rules = [
-			'attributes.name' => [$required, 'max:255'],
-			'attributes.slug' => [$required, 'max:255', 'regex:/^[a-z0-9-]+$/'],
-			'attributes.order_num' => [$required, 'integer'],
-			'attributes.order_num_footer' => [$required, 'integer'],
-			'attributes.is_default' => ['boolean'],
+		return [
+			'data.attributes.name' => [$this->requiredOnCreate(), 'max:255', $this->unique('name')],
+			'data.attributes.slug' => [$this->requiredOnCreate(), 'max:255', 'regex:/^[a-z0-9-]+$/', $this->unique('slug')],
+			'data.attributes.order_num' => [$this->requiredOnCreate(), 'integer'],
+			'data.attributes.order_num_footer' => [$this->requiredOnCreate(), 'integer'],
+			'data.attributes.is_default' => ['boolean'],
 		];
-
-		$unique = Rule::unique($this->getTable(), 'name');
-		if ($this->id) {
-			$unique->ignore($this->id);
-		}
-		$rules['attributes.name'][] = $unique;
-
-		$unique = Rule::unique($this->getTable(), 'slug');
-		if ($this->id) {
-			$unique->ignore($this->id);
-		}
-		$rules['attributes.slug'][] = $unique;
-
-		return $rules;
 	}
 }

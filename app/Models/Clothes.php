@@ -11,7 +11,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
-use Illuminate\Validation\Rule;
 use Jlbelanger\Tapioca\Traits\Resource;
 
 class Clothes extends Model
@@ -59,28 +58,17 @@ class Clothes extends Model
 	}
 
 	/**
-	 * @param  array  $data
-	 * @param  string $method
 	 * @return array
 	 */
-	protected function rules(array $data, string $method) : array // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassBeforeLastUsed
+	public function rules() : array
 	{
-		$required = $method === 'POST' ? 'required' : 'filled';
-		$rules = [
-			'attributes.name' => [$required, 'max:255'],
-			'relationships.category.data.id' => [$required, 'integer'],
-			'relationships.colour.data.id' => [$required, 'integer'],
-			'attributes.is_default' => ['boolean'],
-			'attributes.is_patterned' => ['boolean'],
+		return [
+			'data.attributes.name' => [$this->requiredOnCreate(), 'max:255', $this->unique('name')],
+			'data.relationships.category' => [$this->requiredOnCreate()],
+			'data.relationships.colour' => [$this->requiredOnCreate()],
+			'data.attributes.is_default' => ['boolean'],
+			'data.attributes.is_patterned' => ['boolean'],
 		];
-
-		$unique = Rule::unique($this->getTable(), 'name');
-		if ($this->id) {
-			$unique->ignore($this->id);
-		}
-		$rules['attributes.name'][] = $unique;
-
-		return $rules;
 	}
 
 	/**

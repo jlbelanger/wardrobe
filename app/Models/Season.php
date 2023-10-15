@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Validation\Rule;
 use Jlbelanger\Tapioca\Traits\Resource;
 
 class Season extends Model
@@ -24,26 +23,15 @@ class Season extends Model
 	];
 
 	/**
-	 * @param  array  $data
-	 * @param  string $method
 	 * @return array
 	 */
-	protected function rules(array $data, string $method) : array // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassBeforeLastUsed
+	public function rules() : array
 	{
-		$required = $method === 'POST' ? 'required' : 'filled';
-		$rules = [
-			'attributes.name' => [$required, 'max:255'],
-			'attributes.start_date' => [$required, 'regex:/^\d{2}-\d{2}$/'],
-			'attributes.end_date' => [$required, 'regex:/^\d{2}-\d{2}$/'],
-			'attributes.order_num' => [$required, 'integer'],
+		return [
+			'data.attributes.name' => [$this->requiredOnCreate(), 'max:255', $this->unique('name')],
+			'data.attributes.start_date' => [$this->requiredOnCreate(), 'regex:/^\d{2}-\d{2}$/'],
+			'data.attributes.end_date' => [$this->requiredOnCreate(), 'regex:/^\d{2}-\d{2}$/'],
+			'data.attributes.order_num' => [$this->requiredOnCreate(), 'integer'],
 		];
-
-		$unique = Rule::unique($this->getTable(), 'name');
-		if ($this->id) {
-			$unique->ignore($this->id);
-		}
-		$rules['attributes.name'][] = $unique;
-
-		return $rules;
 	}
 }
