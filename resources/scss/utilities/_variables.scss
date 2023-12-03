@@ -29,6 +29,6 @@ $breakpoint-small: 480px;
 $breakpoint-medium: 800px;
 $screen-width-tablet-landscape: 1024px;
 
-$small-up: '(min-width: #{$breakpoint-small})';
-$medium-up: '(min-width: #{$breakpoint-medium})';
-$tablet-landscape-up: '(min-width: #{$screen-width-tablet-landscape})';
+$small-up: 'min-width: #{$breakpoint-small}';
+$medium-up: 'min-width: #{$breakpoint-medium}';
+$tablet-landscape-up: 'min-width: #{$screen-width-tablet-landscape}';
