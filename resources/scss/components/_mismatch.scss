@@ -1,12 +1,9 @@
 #mismatch-container {
 	align-items: center;
-	bottom: 0;
 	display: flex;
+	inset: 0;
 	justify-content: center;
-	left: 0;
 	position: absolute;
-	right: 0;
-	top: 0;
 
 	&.hide {
 		display: none;
