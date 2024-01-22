@@ -15,6 +15,7 @@ Route::get('/', function () {
 	$categoriesFooter = [];
 	$orderNums = [];
 	$orderNumsFooter = [];
+	$seasonsForClothes = [];
 
 	foreach ($clothes as $c) {
 		if (empty($clothesByCategory[$c->category_id])) {
@@ -25,17 +26,14 @@ Route::get('/', function () {
 			$orderNumsFooter[] = $categories[$c->category_id]->order_num_footer;
 		}
 		$clothesByCategory[$c->category_id][] = $c;
+		$seasonsForClothes[$c->id] = [];
 	}
 
 	array_multisort($orderNumsFooter, SORT_ASC, $categoriesFooter);
 	array_multisort($orderNums, SORT_ASC, $categoriesOutput);
 
-	$seasonsForClothes = [];
 	$clothesSeasons = DB::table('clothes_season')->get();
 	foreach ($clothesSeasons as $c) {
-		if (empty($seasonsForClothes[$c->clothes_id])) {
-			$seasonsForClothes[$c->clothes_id] = [];
-		}
 		$seasonsForClothes[$c->clothes_id][] = $c->season_id;
 	}
 	foreach ($seasonsForClothes as $clothesId => $seasonIds) {
