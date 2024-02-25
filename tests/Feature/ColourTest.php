@@ -11,6 +11,10 @@ class ColourTest extends TestCase
 
 	protected $path = '/api/colours';
 
+	protected $colour;
+
+	protected $user;
+
 	protected function setUp() : void
 	{
 		parent::setUp();

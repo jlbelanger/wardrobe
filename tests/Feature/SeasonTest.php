@@ -11,6 +11,10 @@ class SeasonTest extends TestCase
 
 	protected $path = '/api/seasons';
 
+	protected $season;
+
+	protected $user;
+
 	protected function setUp() : void
 	{
 		parent::setUp();

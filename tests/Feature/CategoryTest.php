@@ -11,6 +11,10 @@ class CategoryTest extends TestCase
 
 	protected $path = '/api/categories';
 
+	protected $category;
+
+	protected $user;
+
 	protected function setUp() : void
 	{
 		parent::setUp();

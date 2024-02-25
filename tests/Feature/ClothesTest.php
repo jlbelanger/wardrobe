@@ -11,16 +11,29 @@ class ClothesTest extends TestCase
 
 	protected $path = '/api/clothes';
 
+	protected $category;
+
+	protected $colour;
+
+	protected $clothes;
+
+	protected $user;
+
 	protected function setUp() : void
 	{
 		parent::setUp();
-		$this->clothes = \App\Models\Clothes::factory()->create();
+		$this->category = \App\Models\Category::factory()->create();
+		$this->colour = \App\Models\Colour::factory()->create();
+		$this->clothes = \App\Models\Clothes::factory()->create([
+			'category_id' => $this->category->getKey(),
+			'colour_id' => $this->colour->getKey(),
+		]);
 		$this->user = \App\Models\User::factory()->create();
 	}
 
 	public function testIndex() : void
 	{
-		$response = $this->actingAs($this->user)->json('GET', $this->path);
+		$response = $this->actingAs($this->user)->json('GET', $this->path . '?include=category,colour,seasons');
 		$response->assertExactJson([
 			'data' => [
 				[
@@ -31,6 +44,43 @@ class ClothesTest extends TestCase
 						'filename' => '/uploads/clothes/yellow-plaid-skirt.png',
 						'is_default' => false,
 						'is_patterned' => false,
+					],
+					'relationships' => [
+						'category' => [
+							'data' => [
+								'id' => (string) $this->category->id,
+								'type' => 'categories',
+							],
+						],
+						'colour' => [
+							'data' => [
+								'id' => (string) $this->colour->id,
+								'type' => 'colours',
+							],
+						],
+						'seasons' => [
+							'data' => [],
+						],
+					],
+				],
+			],
+			'included' => [
+				[
+					'id' => (string) $this->category->id,
+					'type' => 'categories',
+					'attributes' => [
+						'name' => 'Skirts',
+						'slug' => 'skirts',
+						'order_num' => 0,
+						'order_num_footer' => 0,
+						'is_default' => false,
+					],
+				],
+				[
+					'id' => (string) $this->colour->id,
+					'type' => 'colours',
+					'attributes' => [
+						'name' => 'Yellow',
 					],
 				],
 			],

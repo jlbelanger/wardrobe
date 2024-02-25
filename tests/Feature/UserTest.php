@@ -12,6 +12,8 @@ class UserTest extends TestCase
 
 	protected $path = '/api/users';
 
+	protected $user;
+
 	protected function setUp() : void
 	{
 		parent::setUp();
