@@ -1,4 +1,6 @@
-// stylelint-disable declaration-no-important
+@use 'variables';
+
+/* stylelint-disable declaration-no-important */
 
 @media print {
 	#header,
@@ -10,11 +12,11 @@
 	.carousel__container,
 	.category__label,
 	select {
-		background: $white !important;
+		background: variables.$white !important;
 		border: 0 !important;
 		border-radius: 0 !important;
 		box-shadow: none !important;
-		color: $black !important;
+		color: variables.$black !important;
 		padding: 0;
 	}
 

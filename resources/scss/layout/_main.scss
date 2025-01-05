@@ -1,10 +1,12 @@
+@use '../utilities/variables';
+
 * {
 	box-sizing: border-box;
 }
 
 body {
-	background: $black;
-	color: $white;
+	background: variables.$black;
+	color: variables.$white;
 	font-family: chicago, consolas, monospace;
 	user-select: none;
 }
@@ -17,8 +19,8 @@ body {
 
 #header,
 #footer {
-	background: $primary;
-	border-color: $secondary $secondary $black;
+	background: variables.$primary;
+	border-color: variables.$secondary variables.$secondary variables.$black;
 	border-style: solid;
 	border-width: 4px 0;
 }

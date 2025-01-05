@@ -3,8 +3,9 @@
 .eslintcache
 .phpunit.result.cache
 *.log
+/bootstrap/cache/*.php
+/public/uploads
 /vendor
 cypress.config.js
 node_modules
-public/uploads
 TODO.md

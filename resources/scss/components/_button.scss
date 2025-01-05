@@ -1,12 +1,14 @@
+@use '../utilities/variables';
+
 .button {
 	appearance: none;
-	background: $gray;
-	border-color: $light-gray $dark-gray $dark-gray $light-gray;
+	background: variables.$gray;
+	border-color: variables.$light-gray variables.$dark-gray variables.$dark-gray variables.$light-gray;
 	border-radius: 0;
 	border-style: solid;
 	border-width: 4px;
-	box-shadow: 0 0 0 4px $black;
-	color: $black;
+	box-shadow: 0 0 0 4px variables.$black;
+	color: variables.$black;
 	cursor: pointer;
 	display: inline-block;
 	line-height: .8;
@@ -21,7 +23,7 @@
 	padding-top: 4px;
 	width: 124px;
 
-	@media ($tablet-landscape-up) {
+	@media (width >= variables.$screen-width-tablet-landscape) {
 		font-size: 44px;
 		height: 95px;
 		width: 190px;
@@ -30,15 +32,15 @@
 
 .button--large,
 .carousel-button {
-	box-shadow: 0 0 0 8px $black;
+	box-shadow: 0 0 0 8px variables.$black;
 	margin: 8px;
 }
 
 select,
 #more,
 #github {
-	background: $primary;
-	border-color: $secondary $dark-primary $dark-primary $secondary;
+	background: variables.$primary;
+	border-color: variables.$secondary variables.$dark-primary variables.$dark-primary variables.$secondary;
 	border-radius: 4px;
-	color: $white;
+	color: variables.$white;
 }

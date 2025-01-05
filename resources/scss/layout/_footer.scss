@@ -1,3 +1,5 @@
+@use '../utilities/variables';
+
 #footer {
 	align-items: center;
 	display: flex;
@@ -44,8 +46,8 @@
 
 	&:focus {
 		& + .category__label {
-			background: $secondary;
-			color: $white;
+			background: variables.$secondary;
+			color: variables.$white;
 		}
 	}
 }
@@ -55,7 +57,7 @@
 	background: transparent;
 	border: 0;
 	border-radius: 0;
-	color: $white;
+	color: variables.$white;
 	display: flex;
 	height: 44px;
 	justify-content: center;
@@ -65,12 +67,12 @@
 	z-index: 1;
 
 	:checked + & {
-		color: $light-secondary;
+		color: variables.$light-secondary;
 
 		&:hover,
 		&:active,
 		&:focus {
-			color: $white;
+			color: variables.$white;
 		}
 	}
 }

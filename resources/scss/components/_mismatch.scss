@@ -1,3 +1,5 @@
+@use '../utilities/variables';
+
 #mismatch-container {
 	align-items: center;
 	display: flex;
@@ -11,27 +13,27 @@
 }
 
 #mismatch {
-	background-color: $light-secondary;
-	border: 8px solid $black;
-	box-shadow: 8px 8px 0 0 rgba($black, .5);
-	color: $black;
+	background-color: variables.$light-secondary;
+	border: 8px solid variables.$black;
+	box-shadow: 8px 8px 0 0 rgba(variables.$black, .5);
+	color: variables.$black;
 	font-size: 50px;
 	line-height: 40px;
 	padding: 10px 0 0;
 	text-align: center;
 	white-space: nowrap;
 
-	@media ($small-up) {
+	@media (width >= variables.$breakpoint-small) {
 		font-size: 80px;
 		line-height: 70px;
 	}
 
-	@media ($medium-up) {
+	@media (width >= variables.$breakpoint-medium) {
 		font-size: 110px;
 		line-height: 100px;
 	}
 
-	@media ($tablet-landscape-up) {
+	@media (width >= variables.$screen-width-tablet-landscape) {
 		font-size: 140px;
 		line-height: 130px;
 	}

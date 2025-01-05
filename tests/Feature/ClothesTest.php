@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
 
 class ClothesTest extends TestCase
@@ -134,9 +135,7 @@ class ClothesTest extends TestCase
 		];
 	}
 
-	/**
-	 * @dataProvider storeProvider
-	 */
+	#[DataProvider('storeProvider')]
 	public function testStore(array $args) : void
 	{
 		$category = \App\Models\Category::factory()->create(['name' => 'Dresses']);
@@ -175,9 +174,7 @@ class ClothesTest extends TestCase
 		];
 	}
 
-	/**
-	 * @dataProvider showProvider
-	 */
+	#[DataProvider('showProvider')]
 	public function testShow(array $args) : void
 	{
 		$args['response'] = $this->replaceToken('%id%', (string) $this->clothes->id, $args['response']);
@@ -233,9 +230,7 @@ class ClothesTest extends TestCase
 		];
 	}
 
-	/**
-	 * @dataProvider updateProvider
-	 */
+	#[DataProvider('updateProvider')]
 	public function testUpdate(array $args) : void
 	{
 		$category = \App\Models\Category::factory()->create(['name' => 'Dresses']);
@@ -260,9 +255,7 @@ class ClothesTest extends TestCase
 		];
 	}
 
-	/**
-	 * @dataProvider destroyProvider
-	 */
+	#[DataProvider('destroyProvider')]
 	public function testDestroy(array $args) : void
 	{
 		$response = $this->actingAs($this->user)->json('DELETE', $this->path . '/' . $this->clothes->id);

@@ -1,3 +1,5 @@
+@use '../utilities/variables';
+
 #header {
 	align-items: center;
 	display: flex;
@@ -5,7 +7,7 @@
 }
 
 #title {
-	color: $white;
+	color: variables.$white;
 	display: none;
 	font-size: 20px;
 	font-weight: normal;
@@ -13,7 +15,7 @@
 	white-space: nowrap;
 	width: 33.333%;
 
-	@media ($medium-up) {
+	@media (width >= variables.$breakpoint-medium) {
 		display: block;
 	}
 }
@@ -22,7 +24,7 @@
 	text-align: center;
 	width: 100%;
 
-	@media ($medium-up) {
+	@media (width >= variables.$breakpoint-medium) {
 		width: 33.333%;
 	}
 }
@@ -31,7 +33,7 @@ select {
 	appearance: none;
 	border-style: solid;
 	border-width: 4px;
-	box-shadow: 0 0 0 4px $black;
+	box-shadow: 0 0 0 4px variables.$black;
 	cursor: pointer;
 	display: inline-block;
 	line-height: 1;
@@ -44,7 +46,7 @@ select {
 	display: none;
 	margin-left: auto;
 
-	@media ($medium-up) {
+	@media (width >= variables.$breakpoint-medium) {
 		display: block;
 	}
 }

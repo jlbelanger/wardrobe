@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
 
 class SeasonTest extends TestCase
@@ -74,9 +75,7 @@ class SeasonTest extends TestCase
 		];
 	}
 
-	/**
-	 * @dataProvider storeProvider
-	 */
+	#[DataProvider('storeProvider')]
 	public function testStore(array $args) : void
 	{
 		$response = $this->actingAs($this->user)->json('POST', $this->path, $args['body']);
@@ -108,9 +107,7 @@ class SeasonTest extends TestCase
 		];
 	}
 
-	/**
-	 * @dataProvider showProvider
-	 */
+	#[DataProvider('showProvider')]
 	public function testShow(array $args) : void
 	{
 		$args['response'] = $this->replaceToken('%id%', (string) $this->season->id, $args['response']);
@@ -152,9 +149,7 @@ class SeasonTest extends TestCase
 		];
 	}
 
-	/**
-	 * @dataProvider updateProvider
-	 */
+	#[DataProvider('updateProvider')]
 	public function testUpdate(array $args) : void
 	{
 		$args['body'] = $this->replaceToken('%id%', (string) $this->season->id, $args['body']);
@@ -173,9 +168,7 @@ class SeasonTest extends TestCase
 		];
 	}
 
-	/**
-	 * @dataProvider destroyProvider
-	 */
+	#[DataProvider('destroyProvider')]
 	public function testDestroy(array $args) : void
 	{
 		$response = $this->actingAs($this->user)->json('DELETE', $this->path . '/' . $this->season->id);

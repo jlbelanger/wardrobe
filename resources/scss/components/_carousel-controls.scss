@@ -1,5 +1,7 @@
+@use '../utilities/variables';
+
 .carousel-controls {
-	background: $black;
+	background: variables.$black;
 	display: flex;
 	margin-bottom: -8px;
 }
@@ -23,7 +25,7 @@
 	height: 26px;
 	width: 22px;
 
-	@media ($tablet-landscape-up) {
+	@media (width >= variables.$screen-width-tablet-landscape) {
 		background-size: 32px auto;
 		height: 36px;
 		width: 26px;

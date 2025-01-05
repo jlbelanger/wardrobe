@@ -1,6 +1,8 @@
+@use '../utilities/variables';
+
 .carousel__container {
-	background-color: $white;
-	border-color: $gray $black $black $gray;
+	background-color: variables.$white;
+	border-color: variables.$gray variables.$black variables.$black variables.$gray;
 	border-style: solid;
 	border-width: 8px;
 	display: flex;
@@ -8,7 +10,7 @@
 	flex-direction: column;
 
 	.flash & {
-		background-color: $black;
+		background-color: variables.$black;
 	}
 
 	&.hide {
@@ -31,7 +33,7 @@
 	scroll-snap-type: x mandatory;
 
 	&:focus {
-		box-shadow: inset 0 0 0 8px $secondary;
+		box-shadow: inset 0 0 0 8px variables.$secondary;
 	}
 }
 
@@ -39,7 +41,7 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: auto 70%;
-	color: $black;
+	color: variables.$black;
 	flex: 1 0 100%;
 	font-size: 0;
 	scroll-snap-align: start;
@@ -47,13 +49,13 @@
 
 	.flash & {
 		filter:
-			drop-shadow(0 0 1px $white)
-			drop-shadow(0 0 1px $white)
-			drop-shadow(0 0 1px $white)
-			drop-shadow(0 0 1px $white)
-			drop-shadow(0 0 1px $white)
-			drop-shadow(0 0 1px $white)
-			drop-shadow(0 0 1px $white);
+			drop-shadow(0 0 1px variables.$white)
+			drop-shadow(0 0 1px variables.$white)
+			drop-shadow(0 0 1px variables.$white)
+			drop-shadow(0 0 1px variables.$white)
+			drop-shadow(0 0 1px variables.$white)
+			drop-shadow(0 0 1px variables.$white)
+			drop-shadow(0 0 1px variables.$white);
 	}
 
 	&.hide {
@@ -65,16 +67,16 @@
 
 		&::after {
 			animation: spin 1s infinite linear;
-			border-color: $light-gray $light-gray $light-gray transparent;
+			border-color: variables.$light-gray variables.$light-gray variables.$light-gray transparent;
 			border-radius: 100px;
 			border-style: solid;
 			border-width: 8px;
 			content: '';
-			height: $loading-icon-size;
-			left: calc(50% - #{$loading-icon-size * .5});
+			height: variables.$loading-icon-size;
+			left: calc(50% - #{variables.$loading-icon-size * .5});
 			position: absolute;
-			top: calc(50% - #{$loading-icon-size * .5});
-			width: $loading-icon-size;
+			top: calc(50% - #{variables.$loading-icon-size * .5});
+			width: variables.$loading-icon-size;
 		}
 	}
 }

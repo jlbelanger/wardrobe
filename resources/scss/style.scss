@@ -1,21 +1,21 @@
-@import 'utilities/variables';
-@import 'utilities/fonts';
-@import 'normalize.css/normalize';
-@import 'layout/typography';
-@import 'layout/main';
-@import 'layout/header';
-@import 'layout/content';
-@import 'layout/footer';
-@import 'components/animation';
-@import 'components/button';
-@import 'components/carousel';
-@import 'components/carousel-controls';
-@import 'components/error';
-@import 'components/focus';
-@import 'components/hangers';
-@import 'components/mismatch';
-@import 'components/noscript';
-@import 'utilities/print';
+@use 'utilities/variables';
+@use 'utilities/fonts';
+@use '~normalize.css/normalize';
+@use 'layout/typography';
+@use 'layout/main';
+@use 'layout/header';
+@use 'layout/content';
+@use 'layout/footer';
+@use 'components/animation';
+@use 'components/button';
+@use 'components/carousel';
+@use 'components/carousel-controls';
+@use 'components/error';
+@use 'components/focus';
+@use 'components/hangers';
+@use 'components/mismatch';
+@use 'components/noscript';
+@use 'utilities/print';
 
 #more,
 #github,
@@ -27,7 +27,7 @@ select {
 	&:hover,
 	&:active,
 	&:focus {
-		background-color: $secondary;
-		border-color: $light-secondary $dark-secondary $dark-secondary $light-secondary;
+		background-color: variables.$secondary;
+		border-color: variables.$light-secondary variables.$dark-secondary variables.$dark-secondary variables.$light-secondary;
 	}
 }
