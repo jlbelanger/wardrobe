@@ -1,5 +1,3 @@
-@use 'variables';
-
 /* stylelint-disable declaration-no-important */
 
 @media print {
@@ -12,11 +10,11 @@
 	.carousel__container,
 	.category__label,
 	select {
-		background: variables.$white !important;
+		background: var(--white) !important;
 		border: 0 !important;
 		border-radius: 0 !important;
 		box-shadow: none !important;
-		color: variables.$black !important;
+		color: var(--black) !important;
 		padding: 0;
 	}
 

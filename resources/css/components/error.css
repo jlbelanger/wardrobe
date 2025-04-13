@@ -1,8 +1,6 @@
-@use '../utilities/variables';
-
 #error {
 	align-items: center;
-	color: variables.$white;
+	color: var(--white);
 	display: flex;
 	flex-direction: column;
 	height: 100vh;

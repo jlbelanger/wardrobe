@@ -1,4 +1,4 @@
-import '../scss/style.scss';
+import '../css/style.css';
 import { initCategories } from './categories';
 import initDressMe from './dress-me';
 import initNav from './nav';

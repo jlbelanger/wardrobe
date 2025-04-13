@@ -1,0 +1,44 @@
+.button {
+	appearance: none;
+	background: var(--gray);
+	border-color: var(--light-gray) var(--dark-gray) var(--dark-gray) var(--light-gray);
+	border-radius: 0;
+	border-style: solid;
+	border-width: 4px;
+	box-shadow: 0 0 0 4px var(--black);
+	color: var(--black);
+	cursor: pointer;
+	display: inline-block;
+	line-height: .8;
+	margin: 4px;
+	padding: 0;
+}
+
+.button--large {
+	border-width: 8px;
+	font-size: 28px;
+	height: 85px;
+	padding-top: 4px;
+	width: 124px;
+
+	@media (--tablet-landscape-up) {
+		font-size: 44px;
+		height: 95px;
+		width: 190px;
+	}
+}
+
+.button--large,
+.carousel-button {
+	box-shadow: 0 0 0 8px var(--black);
+	margin: 8px;
+}
+
+select,
+#more,
+#github {
+	background: var(--primary);
+	border-color: var(--secondary) var(--dark-primary) var(--dark-primary) var(--secondary);
+	border-radius: 4px;
+	color: var(--white);
+}

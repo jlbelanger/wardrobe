@@ -1,0 +1,19 @@
+:root {
+	/* Colors. */
+	--primary: #13007d;
+	--dark-primary: hsl(from var(--primary) h s calc(l * .7));
+	--secondary: #6161ff;
+	--light-secondary: hsl(from var(--secondary) h s calc(l * 1.18));
+	--dark-secondary: hsl(from var(--secondary) h calc(s * .5) calc(l * .6));
+	--yellow: #f1e3ac;
+	--black: #000;
+	--white: #fff;
+	--gray: #9897a1;
+	--light-gray: hsl(from var(--gray) h s calc(l * 1.446));
+	--dark-gray: hsl(from var(--gray) h s calc(l * .4));
+
+	/* Sizes. */
+	--header-height: 54px;
+	--footer-height: 52px;
+	--loading-icon-size: 32px;
+}

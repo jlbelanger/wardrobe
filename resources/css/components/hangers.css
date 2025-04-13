@@ -1,7 +1,5 @@
-@use '../utilities/variables';
-
 #hangers {
-	background-color: variables.$black;
+	background-color: var(--black);
 	display: flex;
 	flex-wrap: wrap;
 	height: 100vh;

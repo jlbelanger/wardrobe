@@ -1,7 +1,5 @@
-@use '../utilities/variables';
-
 #content {
-	background-color: variables.$yellow;
+	background-color: var(--yellow);
 	background-image: url('/assets/img/cheetah.png');
 	background-size: 50%;
 	display: flex;
@@ -24,11 +22,11 @@
 	min-width: 16px;
 	width: calc(50vw - 300px);
 
-	@media (width >= variables.$breakpoint-medium) {
+	@media (--medium-up) {
 		width: calc(50vw - 350px);
 	}
 
-	@media (width >= variables.$screen-width-tablet-landscape) {
+	@media (--tablet-landscape-up) {
 		width: calc(50vw - 400px);
 	}
 }
@@ -37,14 +35,14 @@
 	display: flex;
 	flex: 1 1 auto;
 	flex-direction: column;
-	height: calc(100vh - #{variables.$header-height + variables.$footer-height});
+	height: calc(100vh - #{var(--header-height) + var(--footer-height)});
 	width: 300px;
 
-	@media (width >= variables.$breakpoint-medium) {
+	@media (--medium-up) {
 		width: 350px;
 	}
 
-	@media (width >= variables.$screen-width-tablet-landscape) {
+	@media (--tablet-landscape-up) {
 		width: 400px;
 	}
 }
@@ -53,7 +51,7 @@
 #dress-me {
 	display: none;
 
-	@media (width >= variables.$breakpoint-medium) {
+	@media (--medium-up) {
 		display: block;
 	}
 }
