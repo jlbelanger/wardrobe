@@ -71,9 +71,9 @@
 			border-width: 8px;
 			content: '';
 			height: var(--loading-icon-size);
-			left: calc(50% - #{var(--loading-icon-size) * .5});
+			left: calc(50% - (var(--loading-icon-size) * .5));
 			position: absolute;
-			top: calc(50% - #{var(--loading-icon-size) * .5});
+			top: calc(50% - (var(--loading-icon-size) * .5));
 			width: var(--loading-icon-size);
 		}
 	}
