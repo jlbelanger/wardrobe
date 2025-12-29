@@ -1,4 +1,4 @@
-import { onScrollList } from './scroll';
+import { onScrollList } from './scroll.js';
 
 export const onChangeSeason = (e) => {
 	const seasonId = e.target.value;

@@ -59,10 +59,12 @@ context('nav', () => {
 			cy.get('#category-skirts .carousel-button--randomize').click();
 			cy.get('#category-skirts .carousel').should('not.have.attr', 'data-index', '0');
 
-			cy.get('#category-skirts .carousel').invoke('attr', 'data-index').then((skirtsIndex) => {
-				cy.get('#category-skirts .carousel-button--randomize').click();
-				cy.get('#category-skirts .carousel').should('not.have.attr', 'data-index', skirtsIndex);
-			});
+			cy.get('#category-skirts .carousel')
+				.invoke('attr', 'data-index')
+				.then((skirtsIndex) => {
+					cy.get('#category-skirts .carousel-button--randomize').click();
+					cy.get('#category-skirts .carousel').should('not.have.attr', 'data-index', skirtsIndex);
+				});
 		});
 
 		context('with next', () => {
@@ -73,12 +75,14 @@ context('nav', () => {
 				cy.get('#category-skirts .carousel-button--randomize').click();
 				cy.get('#category-skirts .carousel').should('not.have.attr', 'data-index', '0');
 
-				cy.get('#category-skirts .carousel').invoke('attr', 'data-index').then((skirtsIndex) => {
-					const expectedIndex = skirtsIndex === '10' ? 0 : parseInt(skirtsIndex, 10) + 1;
-					cy.wait(800);
-					cy.get('#category-skirts .carousel-button--next').click();
-					cy.get('#category-skirts .carousel').should('have.attr', 'data-index', expectedIndex);
-				});
+				cy.get('#category-skirts .carousel')
+					.invoke('attr', 'data-index')
+					.then((skirtsIndex) => {
+						const expectedIndex = skirtsIndex === '10' ? 0 : parseInt(skirtsIndex, 10) + 1;
+						cy.wait(800);
+						cy.get('#category-skirts .carousel-button--next').click();
+						cy.get('#category-skirts .carousel').should('have.attr', 'data-index', expectedIndex);
+					});
 			});
 		});
 
@@ -90,11 +94,13 @@ context('nav', () => {
 				cy.get('#category-skirts .carousel-button--randomize').click();
 				cy.get('#category-skirts .carousel').should('not.have.attr', 'data-index', '0');
 
-				cy.get('#category-skirts .carousel').invoke('attr', 'data-index').then((skirtsIndex) => {
-					cy.wait(800);
-					cy.get('#category-skirts .carousel-button--back').click();
-					cy.get('#category-skirts .carousel').should('have.attr', 'data-index', parseInt(skirtsIndex, 10) - 1);
-				});
+				cy.get('#category-skirts .carousel')
+					.invoke('attr', 'data-index')
+					.then((skirtsIndex) => {
+						cy.wait(800);
+						cy.get('#category-skirts .carousel-button--back').click();
+						cy.get('#category-skirts .carousel').should('have.attr', 'data-index', parseInt(skirtsIndex, 10) - 1);
+					});
 			});
 		});
 	});

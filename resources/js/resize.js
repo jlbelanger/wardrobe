@@ -1,4 +1,4 @@
-import { scrollToItem } from './utilities';
+import { scrollToItem } from './utilities.js';
 
 function onResize2() {
 	const $carousels = document.querySelectorAll('.carousel__container:not(.hide) .carousel');

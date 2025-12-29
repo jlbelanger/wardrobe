@@ -8,7 +8,7 @@
 		<meta property="og:title" content="Jenny's Wardrobe">
 		<meta property="og:description" content="Re-creation of Cher's Wardrobe from the 1995 movie Clueless.">
 		<meta property="og:image" content="{{ url('/assets/img/share.png') }}">
-		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="mobile-web-app-capable" content="yes">
 		<link rel="apple-touch-startup-image" href="{{ url('/assets/img/splash/apple-splash-2048-2732.png') }}" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
 		<link rel="apple-touch-startup-image" href="{{ url('/assets/img/splash/apple-splash-1668-2388.png') }}" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
 		<link rel="apple-touch-startup-image" href="{{ url('/assets/img/splash/apple-splash-1536-2048.png') }}" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">

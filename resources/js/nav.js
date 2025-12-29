@@ -1,4 +1,4 @@
-import { scrollToItem } from './utilities';
+import { scrollToItem } from './utilities.js';
 
 function onClickBack(e, enableScroll = true) {
 	window.DISABLE_SCROLL = true;

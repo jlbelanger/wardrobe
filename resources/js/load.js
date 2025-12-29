@@ -1,5 +1,5 @@
-import { onChangeCategory } from './categories';
-import { onChangeSeason } from './seasons';
+import { onChangeCategory } from './categories.js';
+import { onChangeSeason } from './seasons.js';
 
 function getAnimationDelay(i) {
 	return (150 * i) + 100;

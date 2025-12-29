@@ -1,4 +1,4 @@
-import { loadImage } from './utilities';
+import { loadImage } from './utilities.js';
 
 export const onChangeCategory = (e) => {
 	const $checkbox = e.target;

@@ -1,6 +1,6 @@
-const { defineConfig } = require('cypress'); // eslint-disable-line import/no-extraneous-dependencies
+import { defineConfig } from 'cypress';
 
-module.exports = defineConfig({
+export default defineConfig({
 	e2e: {
 		baseUrl: 'https://wardrobe.jennybelanger.local',
 		experimentalRunAllSpecs: true,

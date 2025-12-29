@@ -1,4 +1,4 @@
-import { scrollToItem } from './utilities';
+import { scrollToItem } from './utilities.js';
 
 function randomizeCarousel($carousel) {
 	const currentI = parseInt($carousel.getAttribute('data-index'), 10);
