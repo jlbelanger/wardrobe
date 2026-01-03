@@ -8,7 +8,7 @@ Jenny's Wardrobe is a re-creation of Cher's Wardrobe from the 1995 movie Clueles
 
 - [Composer](https://getcomposer.org/)
 - [Git](https://git-scm.com/)
-- [Yarn](https://classic.yarnpkg.com/en/docs/install)
+- [Node](https://nodejs.org/)
 - Database
 - Web server with PHP
 
@@ -25,7 +25,7 @@ cp cypress.config.example.js cypress.config.js
 
 # Install dependencies
 composer install
-yarn install
+npm install
 
 # Generate key
 php artisan key:generate
@@ -45,7 +45,7 @@ Copy `/public/uploads` from the live site.
 ### Run
 
 ``` bash
-yarn start
+npm start
 ```
 
 Your browser should automatically open https://localhost:3000/
@@ -54,7 +54,7 @@ Your browser should automatically open https://localhost:3000/
 
 ``` bash
 ./vendor/bin/phpcs
-yarn lint
+npm run lint
 ```
 
 ### Test
