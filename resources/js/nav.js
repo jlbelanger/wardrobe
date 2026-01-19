@@ -60,7 +60,7 @@ function onClickNext(e, enableScroll = true) {
 	const num = $items.length;
 	let i;
 
-	if (currentI < (num - 1)) {
+	if (currentI < num - 1) {
 		i = currentI + 1;
 	} else {
 		i = 0;

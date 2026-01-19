@@ -9,7 +9,7 @@
 	color: var(--black);
 	cursor: pointer;
 	display: inline-block;
-	line-height: .8;
+	line-height: 0.8;
 	margin: 4px;
 	padding: 0;
 }

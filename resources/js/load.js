@@ -2,7 +2,7 @@ import { onChangeCategory } from './categories.js';
 import { onChangeSeason } from './seasons.js';
 
 function getAnimationDelay(i) {
-	return (150 * i) + 100;
+	return (150 * i) + 100; // prettier-ignore
 }
 
 function setAnimation(i, elem) {

@@ -14,7 +14,7 @@ Jenny's Wardrobe is a re-creation of Cher's Wardrobe from the 1995 movie Clueles
 
 ### Setup
 
-``` bash
+```bash
 # Clone the repo
 git clone https://github.com/jlbelanger/wardrobe.git
 cd wardrobe
@@ -44,7 +44,7 @@ Copy `/public/uploads` from the live site.
 
 ### Run
 
-``` bash
+```bash
 npm start
 ```
 
@@ -52,20 +52,20 @@ Your browser should automatically open https://localhost:3000/
 
 ### Lint
 
-``` bash
+```bash
 ./vendor/bin/phpcs
 npm run lint
 ```
 
 ### Test
 
-``` bash
+```bash
 ./vendor/bin/phpunit
 ```
 
 ### Generate splash screens
 
-``` bash
+```bash
 npx pwa-asset-generator public/icon.png ./public/assets/img/splash --background "#000" --splash-only --type png --portrait-only --padding "20%"
 ```
 
@@ -73,7 +73,7 @@ npx pwa-asset-generator public/icon.png ./public/assets/img/splash --background 
 
 Essentially, to set up the repo on the server:
 
-``` bash
+```bash
 git clone https://github.com/jlbelanger/wardrobe.git
 cd wardrobe
 cp .env.example .env
@@ -86,7 +86,7 @@ chown -R www-data:www-data storage
 
 For subsequent deploys, push changes to the main branch, then run the following on the server:
 
-``` bash
+```bash
 cd wardrobe
 git fetch origin
 git pull
@@ -98,6 +98,6 @@ php artisan config:clear
 
 Note: The deploy script included in this repo depends on other scripts that only exist in my private repos. If you want to deploy this repo, you'll have to create your own script.
 
-``` bash
+```bash
 ./deploy.sh
 ```

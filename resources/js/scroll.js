@@ -20,7 +20,11 @@ export const onScrollList = (e) => {
 	for (i = 0; i < num; i += 1) {
 		$item = $items[i];
 		const rect = $item.getBoundingClientRect();
-		if ((rect.left - offsetLeft) >= ((rect.width * -1) - 1) && (rect.right - offsetLeft) <= ((rect.width * 2) + 1)) {
+		const rectLeft = rect.left - offsetLeft;
+		const rectRight = rect.right - offsetLeft;
+		const left = (rect.width * -1) - 1; // prettier-ignore
+		const right = (rect.width * 2) + 1; // prettier-ignore
+		if (rectLeft >= left && rectRight <= right) {
 			loadImage($item);
 			$carousel.setAttribute('data-index', i);
 		}

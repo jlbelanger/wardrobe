@@ -46,6 +46,7 @@
 	width: 100%;
 
 	.flash & {
+		/* prettier-ignore */
 		filter:
 			drop-shadow(0 0 1px var(--white))
 			drop-shadow(0 0 1px var(--white))
@@ -71,9 +72,9 @@
 			border-width: 8px;
 			content: '';
 			height: var(--loading-icon-size);
-			left: calc(50% - (var(--loading-icon-size) * .5));
+			left: calc(50% - (var(--loading-icon-size) * 0.5));
 			position: absolute;
-			top: calc(50% - (var(--loading-icon-size) * .5));
+			top: calc(50% - (var(--loading-icon-size) * 0.5));
 			width: var(--loading-icon-size);
 		}
 	}
