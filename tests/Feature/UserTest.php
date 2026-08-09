@@ -11,9 +11,9 @@ class UserTest extends TestCase
 {
 	use RefreshDatabase;
 
-	protected $path = '/api/users';
+	protected string $path = '/api/users';
 
-	protected $user;
+	protected User $user;
 
 	protected function setUp() : void
 	{

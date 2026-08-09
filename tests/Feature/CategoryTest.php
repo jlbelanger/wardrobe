@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
@@ -10,17 +12,17 @@ class CategoryTest extends TestCase
 {
 	use RefreshDatabase;
 
-	protected $path = '/api/categories';
+	protected string $path = '/api/categories';
 
-	protected $category;
+	protected Category $category;
 
-	protected $user;
+	protected User $user;
 
 	protected function setUp() : void
 	{
 		parent::setUp();
-		$this->category = \App\Models\Category::factory()->create();
-		$this->user = \App\Models\User::factory()->create();
+		$this->category = Category::factory()->create();
+		$this->user = User::factory()->create();
 	}
 
 	public function testIndex() : void

@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\Models\Colour;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
@@ -10,17 +12,17 @@ class ColourTest extends TestCase
 {
 	use RefreshDatabase;
 
-	protected $path = '/api/colours';
+	protected string $path = '/api/colours';
 
-	protected $colour;
+	protected Colour $colour;
 
-	protected $user;
+	protected User $user;
 
 	protected function setUp() : void
 	{
 		parent::setUp();
-		$this->colour = \App\Models\Colour::factory()->create();
-		$this->user = \App\Models\User::factory()->create();
+		$this->colour = Colour::factory()->create();
+		$this->user = User::factory()->create();
 	}
 
 	public function testIndex() : void

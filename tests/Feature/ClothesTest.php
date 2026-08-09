@@ -2,6 +2,10 @@
 
 namespace Tests\Feature;
 
+use App\Models\Category;
+use App\Models\Colour;
+use App\Models\Clothes;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
@@ -10,26 +14,26 @@ class ClothesTest extends TestCase
 {
 	use RefreshDatabase;
 
-	protected $path = '/api/clothes';
+	protected string $path = '/api/clothes';
 
-	protected $category;
+	protected Category $category;
 
-	protected $colour;
+	protected Colour $colour;
 
-	protected $clothes;
+	protected Clothes $clothes;
 
-	protected $user;
+	protected User $user;
 
 	protected function setUp() : void
 	{
 		parent::setUp();
-		$this->category = \App\Models\Category::factory()->create();
-		$this->colour = \App\Models\Colour::factory()->create();
-		$this->clothes = \App\Models\Clothes::factory()->create([
+		$this->category = Category::factory()->create();
+		$this->colour = Colour::factory()->create();
+		$this->clothes = Clothes::factory()->create([
 			'category_id' => $this->category->getKey(),
 			'colour_id' => $this->colour->getKey(),
 		]);
-		$this->user = \App\Models\User::factory()->create();
+		$this->user = User::factory()->create();
 	}
 
 	public function testIndex() : void
@@ -138,8 +142,8 @@ class ClothesTest extends TestCase
 	#[DataProvider('storeProvider')]
 	public function testStore(array $args) : void
 	{
-		$category = \App\Models\Category::factory()->create(['name' => 'Dresses']);
-		$colour = \App\Models\Colour::factory()->create(['name' => 'Red']);
+		$category = Category::factory()->create(['name' => 'Dresses']);
+		$colour = Colour::factory()->create(['name' => 'Red']);
 		$args['body'] = $this->replaceToken('%category_id%', (string) $category->getKey(), $args['body']);
 		$args['body'] = $this->replaceToken('%colour_id%', (string) $colour->getKey(), $args['body']);
 		$args['response'] = $this->replaceToken('%category_id%', (string) $category->getKey(), $args['response']);
@@ -233,8 +237,8 @@ class ClothesTest extends TestCase
 	#[DataProvider('updateProvider')]
 	public function testUpdate(array $args) : void
 	{
-		$category = \App\Models\Category::factory()->create(['name' => 'Dresses']);
-		$colour = \App\Models\Colour::factory()->create(['name' => 'Red']);
+		$category = Category::factory()->create(['name' => 'Dresses']);
+		$colour = Colour::factory()->create(['name' => 'Red']);
 		$args['body'] = $this->replaceToken('%id%', (string) $this->clothes->getKey(), $args['body']);
 		$args['body'] = $this->replaceToken('%category_id%', (string) $category->getKey(), $args['body']);
 		$args['body'] = $this->replaceToken('%colour_id%', (string) $colour->getKey(), $args['body']);

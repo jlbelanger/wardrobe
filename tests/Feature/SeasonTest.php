@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\Models\Season;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
@@ -10,17 +12,17 @@ class SeasonTest extends TestCase
 {
 	use RefreshDatabase;
 
-	protected $path = '/api/seasons';
+	protected string $path = '/api/seasons';
 
-	protected $season;
+	protected Season $season;
 
-	protected $user;
+	protected User $user;
 
 	protected function setUp() : void
 	{
 		parent::setUp();
-		$this->season = \App\Models\Season::factory()->create();
-		$this->user = \App\Models\User::factory()->create();
+		$this->season = Season::factory()->create();
+		$this->user = User::factory()->create();
 	}
 
 	public function testIndex() : void
