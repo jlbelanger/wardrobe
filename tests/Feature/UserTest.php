@@ -27,7 +27,7 @@ class UserTest extends TestCase
 		$response->assertExactJson([
 			'data' => [
 				[
-					'id' => (string) $this->user->id,
+					'id' => (string) $this->user->getKey(),
 					'type' => 'users',
 					'attributes' => [
 						'email' => 'foo@example.com',
@@ -101,8 +101,8 @@ class UserTest extends TestCase
 	#[DataProvider('showProvider')]
 	public function testShow(array $args) : void
 	{
-		$args['response'] = $this->replaceToken('%id%', (string) $this->user->id, $args['response']);
-		$response = $this->actingAs($this->user)->json('GET', $this->path . '/' . $this->user->id);
+		$args['response'] = $this->replaceToken('%id%', (string) $this->user->getKey(), $args['response']);
+		$response = $this->actingAs($this->user)->json('GET', $this->path . '/' . $this->user->getKey());
 		$response->assertExactJson($args['response']);
 		$response->assertStatus($args['code']);
 	}
@@ -139,9 +139,9 @@ class UserTest extends TestCase
 	#[DataProvider('updateProvider')]
 	public function testUpdate(array $args) : void
 	{
-		$args['body'] = $this->replaceToken('%id%', (string) $this->user->id, $args['body']);
-		$args['response'] = $this->replaceToken('%id%', (string) $this->user->id, $args['response']);
-		$response = $this->actingAs($this->user)->json('PUT', $this->path . '/' . $this->user->id, $args['body']);
+		$args['body'] = $this->replaceToken('%id%', (string) $this->user->getKey(), $args['body']);
+		$args['response'] = $this->replaceToken('%id%', (string) $this->user->getKey(), $args['response']);
+		$response = $this->actingAs($this->user)->json('PUT', $this->path . '/' . $this->user->getKey(), $args['body']);
 		$response->assertExactJson($args['response']);
 		$response->assertStatus($args['code']);
 	}
@@ -158,7 +158,7 @@ class UserTest extends TestCase
 	#[DataProvider('destroyProvider')]
 	public function testDestroy(array $args) : void
 	{
-		$response = $this->actingAs($this->user)->json('DELETE', $this->path . '/' . $this->user->id);
+		$response = $this->actingAs($this->user)->json('DELETE', $this->path . '/' . $this->user->getKey());
 		if (!empty($args['response'])) {
 			$response->assertExactJson($args['response']);
 			$response->assertStatus($args['code']);

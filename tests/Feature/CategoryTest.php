@@ -29,7 +29,7 @@ class CategoryTest extends TestCase
 		$response->assertExactJson([
 			'data' => [
 				[
-					'id' => (string) $this->category->id,
+					'id' => (string) $this->category->getKey(),
 					'type' => 'categories',
 					'attributes' => [
 						'name' => 'Skirts',
@@ -114,8 +114,8 @@ class CategoryTest extends TestCase
 	#[DataProvider('showProvider')]
 	public function testShow(array $args) : void
 	{
-		$args['response'] = $this->replaceToken('%id%', (string) $this->category->id, $args['response']);
-		$response = $this->actingAs($this->user)->json('GET', $this->path . '/' . $this->category->id);
+		$args['response'] = $this->replaceToken('%id%', (string) $this->category->getKey(), $args['response']);
+		$response = $this->actingAs($this->user)->json('GET', $this->path . '/' . $this->category->getKey());
 		$response->assertExactJson($args['response']);
 		$response->assertStatus($args['code']);
 	}
@@ -158,9 +158,9 @@ class CategoryTest extends TestCase
 	#[DataProvider('updateProvider')]
 	public function testUpdate(array $args) : void
 	{
-		$args['body'] = $this->replaceToken('%id%', (string) $this->category->id, $args['body']);
-		$args['response'] = $this->replaceToken('%id%', (string) $this->category->id, $args['response']);
-		$response = $this->actingAs($this->user)->json('PUT', $this->path . '/' . $this->category->id, $args['body']);
+		$args['body'] = $this->replaceToken('%id%', (string) $this->category->getKey(), $args['body']);
+		$args['response'] = $this->replaceToken('%id%', (string) $this->category->getKey(), $args['response']);
+		$response = $this->actingAs($this->user)->json('PUT', $this->path . '/' . $this->category->getKey(), $args['body']);
 		$response->assertExactJson($args['response']);
 		$response->assertStatus($args['code']);
 	}
@@ -177,7 +177,7 @@ class CategoryTest extends TestCase
 	#[DataProvider('destroyProvider')]
 	public function testDestroy(array $args) : void
 	{
-		$response = $this->actingAs($this->user)->json('DELETE', $this->path . '/' . $this->category->id);
+		$response = $this->actingAs($this->user)->json('DELETE', $this->path . '/' . $this->category->getKey());
 		if (!empty($args['response'])) {
 			$response->assertExactJson($args['response']);
 			$response->assertStatus($args['code']);

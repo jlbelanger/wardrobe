@@ -29,7 +29,7 @@ class ColourTest extends TestCase
 		$response->assertExactJson([
 			'data' => [
 				[
-					'id' => (string) $this->colour->id,
+					'id' => (string) $this->colour->getKey(),
 					'type' => 'colours',
 					'attributes' => [
 						'name' => 'Yellow',
@@ -98,8 +98,8 @@ class ColourTest extends TestCase
 	#[DataProvider('showProvider')]
 	public function testShow(array $args) : void
 	{
-		$args['response'] = $this->replaceToken('%id%', (string) $this->colour->id, $args['response']);
-		$response = $this->actingAs($this->user)->json('GET', $this->path . '/' . $this->colour->id);
+		$args['response'] = $this->replaceToken('%id%', (string) $this->colour->getKey(), $args['response']);
+		$response = $this->actingAs($this->user)->json('GET', $this->path . '/' . $this->colour->getKey());
 		$response->assertExactJson($args['response']);
 		$response->assertStatus($args['code']);
 	}
@@ -134,9 +134,9 @@ class ColourTest extends TestCase
 	#[DataProvider('updateProvider')]
 	public function testUpdate(array $args) : void
 	{
-		$args['body'] = $this->replaceToken('%id%', (string) $this->colour->id, $args['body']);
-		$args['response'] = $this->replaceToken('%id%', (string) $this->colour->id, $args['response']);
-		$response = $this->actingAs($this->user)->json('PUT', $this->path . '/' . $this->colour->id, $args['body']);
+		$args['body'] = $this->replaceToken('%id%', (string) $this->colour->getKey(), $args['body']);
+		$args['response'] = $this->replaceToken('%id%', (string) $this->colour->getKey(), $args['response']);
+		$response = $this->actingAs($this->user)->json('PUT', $this->path . '/' . $this->colour->getKey(), $args['body']);
 		$response->assertExactJson($args['response']);
 		$response->assertStatus($args['code']);
 	}
@@ -153,7 +153,7 @@ class ColourTest extends TestCase
 	#[DataProvider('destroyProvider')]
 	public function testDestroy(array $args) : void
 	{
-		$response = $this->actingAs($this->user)->json('DELETE', $this->path . '/' . $this->colour->id);
+		$response = $this->actingAs($this->user)->json('DELETE', $this->path . '/' . $this->colour->getKey());
 		if (!empty($args['response'])) {
 			$response->assertExactJson($args['response']);
 			$response->assertStatus($args['code']);

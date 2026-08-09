@@ -29,7 +29,7 @@ class SeasonTest extends TestCase
 		$response->assertExactJson([
 			'data' => [
 				[
-					'id' => (string) $this->season->id,
+					'id' => (string) $this->season->getKey(),
 					'type' => 'seasons',
 					'attributes' => [
 						'name' => 'Fall Fashions',
@@ -110,8 +110,8 @@ class SeasonTest extends TestCase
 	#[DataProvider('showProvider')]
 	public function testShow(array $args) : void
 	{
-		$args['response'] = $this->replaceToken('%id%', (string) $this->season->id, $args['response']);
-		$response = $this->actingAs($this->user)->json('GET', $this->path . '/' . $this->season->id);
+		$args['response'] = $this->replaceToken('%id%', (string) $this->season->getKey(), $args['response']);
+		$response = $this->actingAs($this->user)->json('GET', $this->path . '/' . $this->season->getKey());
 		$response->assertExactJson($args['response']);
 		$response->assertStatus($args['code']);
 	}
@@ -152,9 +152,9 @@ class SeasonTest extends TestCase
 	#[DataProvider('updateProvider')]
 	public function testUpdate(array $args) : void
 	{
-		$args['body'] = $this->replaceToken('%id%', (string) $this->season->id, $args['body']);
-		$args['response'] = $this->replaceToken('%id%', (string) $this->season->id, $args['response']);
-		$response = $this->actingAs($this->user)->json('PUT', $this->path . '/' . $this->season->id, $args['body']);
+		$args['body'] = $this->replaceToken('%id%', (string) $this->season->getKey(), $args['body']);
+		$args['response'] = $this->replaceToken('%id%', (string) $this->season->getKey(), $args['response']);
+		$response = $this->actingAs($this->user)->json('PUT', $this->path . '/' . $this->season->getKey(), $args['body']);
 		$response->assertExactJson($args['response']);
 		$response->assertStatus($args['code']);
 	}
@@ -171,7 +171,7 @@ class SeasonTest extends TestCase
 	#[DataProvider('destroyProvider')]
 	public function testDestroy(array $args) : void
 	{
-		$response = $this->actingAs($this->user)->json('DELETE', $this->path . '/' . $this->season->id);
+		$response = $this->actingAs($this->user)->json('DELETE', $this->path . '/' . $this->season->getKey());
 		if (!empty($args['response'])) {
 			$response->assertExactJson($args['response']);
 			$response->assertStatus($args['code']);
