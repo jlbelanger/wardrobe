@@ -22,9 +22,6 @@ class Season extends Model
 		'order_num' => 'integer',
 	];
 
-	/**
-	 * @return array
-	 */
 	public function rules() : array
 	{
 		return [

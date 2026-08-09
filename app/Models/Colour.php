@@ -15,9 +15,6 @@ class Colour extends Model
 		'name',
 	];
 
-	/**
-	 * @return array
-	 */
 	public function rules() : array
 	{
 		return [

@@ -23,12 +23,6 @@ use Jlbelanger\Tapioca\Helpers\Utilities;
 
 class AuthController extends Controller
 {
-	/**
-	 * Handles an authentication attempt.
-	 *
-	 * @param  Request $request
-	 * @return Response
-	 */
 	public function login(Request $request) : JsonResponse
 	{
 		$rules = [
@@ -61,12 +55,6 @@ class AuthController extends Controller
 		]);
 	}
 
-	/**
-	 * Logs the user out (Invalidate the token).
-	 *
-	 * @param  Request $request
-	 * @return JsonResponse
-	 */
 	public function logout(Request $request) : JsonResponse // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClass
 	{
 		$user = Auth::guard('sanctum')->user();
@@ -76,10 +64,6 @@ class AuthController extends Controller
 		return response()->json(null, 204);
 	}
 
-	/**
-	 * @param  Request $request
-	 * @return JsonResponse
-	 */
 	public function forgotPassword(Request $request) : JsonResponse
 	{
 		$rules = [
@@ -104,11 +88,6 @@ class AuthController extends Controller
 		return response()->json(null, 204);
 	}
 
-	/**
-	 * @param  Request $request
-	 * @param  string  $token
-	 * @return JsonResponse
-	 */
 	public function resetPassword(Request $request, string $token) : JsonResponse
 	{
 		$rules = [
@@ -156,10 +135,6 @@ class AuthController extends Controller
 		return response()->json(null, 204);
 	}
 
-	/**
-	 * @param  Request $request
-	 * @return JsonResponse
-	 */
 	public function changeEmail(Request $request) : JsonResponse
 	{
 		$user = Auth::guard('sanctum')->user();
@@ -183,10 +158,6 @@ class AuthController extends Controller
 		return response()->json(null, 204);
 	}
 
-	/**
-	 * @param  Request $request
-	 * @return JsonResponse
-	 */
 	public function changePassword(Request $request) : JsonResponse
 	{
 		$user = Auth::guard('sanctum')->user();
@@ -210,10 +181,6 @@ class AuthController extends Controller
 		return response()->json(null, 204);
 	}
 
-	/**
-	 * @param  Request $request
-	 * @return JsonResponse
-	 */
 	public function register(Request $request) : JsonResponse
 	{
 		$rules = [
@@ -244,10 +211,6 @@ class AuthController extends Controller
 		]);
 	}
 
-	/**
-	 * @param  Request $request
-	 * @return JsonResponse
-	 */
 	public function verifyEmail(Request $request) : JsonResponse
 	{
 		$user = User::find($request->query('id'));
@@ -259,10 +222,6 @@ class AuthController extends Controller
 		return response()->json(null, 204);
 	}
 
-	/**
-	 * @param  Request $request
-	 * @return JsonResponse
-	 */
 	public function resendVerification(Request $request) : JsonResponse
 	{
 		$user = User::where('username', '=', $request->input('username'))->first();

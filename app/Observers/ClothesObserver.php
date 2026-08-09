@@ -6,11 +6,7 @@ use App\Models\Clothes;
 
 class ClothesObserver
 {
-	/**
-	 * @param  Clothes $clothes
-	 * @return void
-	 */
-	public function updating(Clothes $clothes)
+	public function updating(Clothes $clothes) : void
 	{
 		if (!$clothes->isDirty('name')) {
 			return;
@@ -33,11 +29,7 @@ class ClothesObserver
 		}
 	}
 
-	/**
-	 * @param  Clothes $clothes
-	 * @return void
-	 */
-	public function updated(Clothes $clothes)
+	public function updated(Clothes $clothes) : void
 	{
 		// When uploading or removing file, delete the old file.
 		if ($clothes->isDirty('filename')) {
@@ -51,11 +43,7 @@ class ClothesObserver
 		}
 	}
 
-	/**
-	 * @param  Clothes $clothes
-	 * @return void
-	 */
-	public function deleted(Clothes $clothes)
+	public function deleted(Clothes $clothes) : void
 	{
 		// Delete associated files.
 		if ($clothes->filename) {

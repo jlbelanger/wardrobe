@@ -14,31 +14,17 @@ class User extends Authenticatable
 {
 	use HasApiTokens, HasFactory, Notifiable, Resource;
 
-	/**
-	 * The attributes that are mass assignable.
-	 *
-	 * @var array<int, string>
-	 */
 	protected $fillable = [
 		'username',
 		'email',
 		'password',
 	];
 
-	/**
-	 * The attributes that should be hidden for serialization.
-	 *
-	 * @var array<int, string>
-	 */
 	protected $hidden = [
 		'password',
 		'remember_token',
 	];
 
-	/**
-	 * @param  boolean $remember
-	 * @return array
-	 */
 	public function getAuthInfo(bool $remember) : array
 	{
 		return [
@@ -47,9 +33,6 @@ class User extends Authenticatable
 		];
 	}
 
-	/**
-	 * @return array
-	 */
 	public function rules() : array
 	{
 		$rules = [

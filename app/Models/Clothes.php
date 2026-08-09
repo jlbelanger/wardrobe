@@ -33,33 +33,21 @@ class Clothes extends Model
 		'is_patterned' => 'boolean',
 	];
 
-	/**
-	 * @return BelongsTo
-	 */
 	public function category() : BelongsTo
 	{
 		return $this->belongsTo(Category::class, 'category_id');
 	}
 
-	/**
-	 * @return BelongsTo
-	 */
 	public function colour() : BelongsTo
 	{
 		return $this->belongsTo(Colour::class, 'colour_id');
 	}
 
-	/**
-	 * @return array
-	 */
 	public function multiRelationships() : array
 	{
 		return ['seasons'];
 	}
 
-	/**
-	 * @return array
-	 */
 	public function rules() : array
 	{
 		return [
@@ -71,28 +59,16 @@ class Clothes extends Model
 		];
 	}
 
-	/**
-	 * @return BelongsToMany
-	 */
 	public function seasons() : BelongsToMany
 	{
 		return $this->belongsToMany(Season::class);
 	}
 
-	/**
-	 * @return array
-	 */
 	public function singularRelationships() : array
 	{
 		return ['category', 'colour'];
 	}
 
-	/**
-	 * @param  string $key
-	 * @param  string $filename
-	 * @param  array  $data
-	 * @return string
-	 */
 	public function uploadedFilename(string $key, string $filename, array $data = []) : string // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassBeforeLastUsed
 	{
 		$name = !empty($data['attributes']['name']) ? $data['attributes']['name'] : $this->name;

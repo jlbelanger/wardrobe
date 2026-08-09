@@ -25,9 +25,6 @@ class Category extends Model
 		'is_default' => 'boolean',
 	];
 
-	/**
-	 * @return array
-	 */
 	public function rules() : array
 	{
 		return [
