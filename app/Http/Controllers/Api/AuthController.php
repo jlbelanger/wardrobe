@@ -55,7 +55,7 @@ class AuthController extends Controller
 		]);
 	}
 
-	public function logout(Request $request) : JsonResponse // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClass
+	public function logout() : JsonResponse
 	{
 		$user = Auth::guard('sanctum')->user();
 		$user->currentAccessToken()->delete();
@@ -79,7 +79,6 @@ class AuthController extends Controller
 			return response()->json(['errors' => [['title' => __('passwords.send_error'), 'status' => '500']]], 500);
 		}
 
-		$success = $status === Password::RESET_LINK_SENT;
 		if ($status === Password::RESET_LINK_SENT) {
 			self::log(['action' => 'forgotPassword', 'email' => $email]);
 		} else {
@@ -109,7 +108,7 @@ class AuthController extends Controller
 				'password_confirmation' => $request->input('data.attributes.new_password_confirmation'),
 				'token' => $token,
 			],
-			function ($user, $password) use ($email) {
+			function ($user, $password) {
 				$userData = [
 					'password' => Hash::make($password),
 					'remember_token' => Str::random(60),
@@ -232,12 +231,12 @@ class AuthController extends Controller
 		return response()->json(null, 204);
 	}
 
-	protected static function logWarning($s) : void
+	protected static function logWarning(array $s) : void
 	{
 		self::log($s, 'warning');
 	}
 
-	protected static function log($s, string $level = 'info') : void
+	protected static function log(array $s, string $level = 'info') : void
 	{
 		Log::channel('auth')->$level(json_encode(array_merge($s, ['ip' => request()->ip()])));
 	}
